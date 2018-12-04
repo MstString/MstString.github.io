@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>面试-Java基础知识 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="扎实基础！18.3.5日更新：碰壁并吸取经验教训！">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试-Java基础知识">
+<meta property="og:url" content="http://yoursite.com/2017/07/28/面试-Java基础知识/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="扎实基础！18.3.5日更新：碰壁并吸取经验教训！">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/public_protected_private_default.png">
+<meta property="og:updated_time" content="2018-11-20T15:12:02.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试-Java基础知识">
+<meta name="twitter:description" content="扎实基础！18.3.5日更新：碰壁并吸取经验教训！">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/public_protected_private_default.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面试-Java基础知识" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/28/面试-Java基础知识/" class="article-date">
+  <time datetime="2017-07-28T11:26:59.000Z" itemprop="datePublished">2017-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面试-Java基础知识
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>扎实基础！<br>18.3.5日更新：碰壁并吸取经验教训！</p>
+<a id="more"></a>
+<p>笔试让我明白了自己的一些问题。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">byte</span> b = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">byte</span> c = a + b;</span><br><span class="line"><span class="comment">// 报错 默认最低是Int类型</span></span><br><span class="line"><span class="keyword">byte</span> c = (<span class="keyword">byte</span>)a + b;</span><br><span class="line"><span class="keyword">int</span> c = a + b;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lzy.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> b = a++;</span><br><span class="line">		System.out.println(a);<span class="comment">//1</span></span><br><span class="line">		<span class="keyword">int</span> c = ++a;</span><br><span class="line">		System.out.println(a);<span class="comment">//2</span></span><br><span class="line">		System.out.println(a++);<span class="comment">//2</span></span><br><span class="line">		System.out.println(++a);<span class="comment">//4</span></span><br><span class="line">		System.out.println(b);<span class="comment">//0</span></span><br><span class="line">		System.out.println(c);<span class="comment">//2</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line">		<span class="comment">// a的变化：6	   7     8     9    10</span></span><br><span class="line">		<span class="comment">// b的变化： 5    7     7     8     10</span></span><br><span class="line">		<span class="keyword">int</span> b = a++ + ++a + a++ + a++ + ++a;</span><br><span class="line">		System.out.println(b); <span class="comment">//37</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">//&amp;对每一个都判断；</span></span><br><span class="line">		<span class="keyword">if</span> (a==<span class="number">0</span> &amp; a++==<span class="number">1</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">"&amp;"</span>);<span class="comment">//不输出</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(a);<span class="comment">//1</span></span><br><span class="line">		<span class="comment">//&amp;&amp;只要前面是false就输出false，而不继续判断后面了</span></span><br><span class="line">		<span class="keyword">if</span> (a==<span class="number">0</span> &amp;&amp; a++==<span class="number">1</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">"&amp;&amp;"</span>);<span class="comment">//不输出</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (a==<span class="number">1</span> &amp;&amp; a++==<span class="number">1</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">"&amp;&amp;"</span>);<span class="comment">//输出</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 随机数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 随机数产生的范围是[0, 1)</span></span><br><span class="line">		<span class="keyword">double</span> num = Math.random();</span><br><span class="line">		<span class="comment">// 这样子[0, 0.5) [0.5, 1)才能真正平衡</span></span><br><span class="line">		<span class="keyword">if</span> (num &gt;= <span class="number">0.5</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">"成都"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"赵雷"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 输出指定范围的数字</span></span><br><span class="line">		<span class="comment">// [26, 38]</span></span><br><span class="line">		<span class="comment">// 方法一： (int)(Math.random()*(max - min) + min);</span></span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">25</span>;</span><br><span class="line">		<span class="keyword">int</span> b = <span class="number">38</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span>  scal = (<span class="keyword">int</span>)(Math.random()*(b - a + <span class="number">1</span>)) + a;</span><br><span class="line">		System.out.println(scal);</span><br><span class="line">		<span class="comment">// 方法二：</span></span><br><span class="line">		<span class="keyword">int</span> scall = (<span class="keyword">int</span>)(Math.random() * <span class="number">100</span> % <span class="number">12</span>) + a;</span><br><span class="line">		System.out.println(scall);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="基础知识点"><a href="#基础知识点" class="headerlink" title="基础知识点"></a>基础知识点</h2><h3 id="一：-与-equal的区别："><a href="#一：-与-equal的区别：" class="headerlink" title="一：== 与 equal的区别："></a>一：== 与 equal的区别：</h3><ol>
+<li>== 是一个运算符。</li>
+<li>Equals则是string对象的方法，可以.（点）出来。</li>
+<li>因为对象变量的存储的是对象在内存中的路径，即内存地址。所以用“==”比较时，即使<br>对象的值相等，但是他们的内存地址不同(引用数据类型)，所以==的结果为false。故“==”用于比较两<br>个变量的值是否相等，而不是变量引用的对象是否相等。</li>
+<li>equal用于比较两个对象是否相同。 </li>
+<li>“==”比较的是值【变量(栈)内存中存放的对象的(堆)内存地址】<br>equal用于比较两个对象的值是否相同【不是比地址】 </li>
+</ol>
+<p>【特别注意】Object类中的equals方法和“==”是一样的，没有区别，而String类，Integer类等等一些类，是重写了equals方法，才使得equals和“==不同”，所以，当自己创建类时，自动继承了Object的equals方法，要想实现不同的等于比较，必须重写equals方法。”==”比”equal”运行速度快,因为”==”只是比较引用.</p>
+<h3 id="二：public、protected、private、default（friendly）的区别"><a href="#二：public、protected、private、default（friendly）的区别" class="headerlink" title="二：public、protected、private、default（friendly）的区别:"></a>二：public、protected、private、default（friendly）的区别:</h3><p><img src="/assets/blogImg/public_protected_private_default.png" alt="Java中作用范围表"></p>
+<p>public：可以被其他类访问<br>private：只能被自己访问和修改<br>protected:类内部、子类、同一个包中的类之间可以访问<br>default：作用域是包，可以不写。被认为是friendly</p>
+<h3 id="final关键字："><a href="#final关键字：" class="headerlink" title="final关键字："></a>final关键字：</h3><p>修饰类：表示该类不能被继承，final类的所有成员方法都会被隐式的指定为final方法<br>修饰方法：变是该方法不能被子类修改，类的private方法会被隐式的指定为final方法<br>修饰变量：基本数据变量不可以被更改<br>         引用类型变量不可以再更改指向另一个对象</p>
+<h3 id="Java线程安全与非线程安全："><a href="#Java线程安全与非线程安全：" class="headerlink" title="Java线程安全与非线程安全："></a>Java线程安全与非线程安全：</h3><p>多线程安全优点体现在多个线程操作同一个对象，非线程安全 != 不安全<br>线程安全是通过线程同步控制来实现的，也就是synchronized关键字。<br>ArrayList是非线程安全 Vector是线程安全；<br>HashMap是非线程安全 HashTable是线程安全；<br>StringBuilder是非线程安全 StringBuffer是线程安全；<br><a href="http://blog.csdn.net/YiZhiCXY/article/details/51335385" target="_blank" rel="noopener">http://blog.csdn.net/YiZhiCXY/article/details/51335385</a></p>
+<h3 id="String、StringBuffer、StringBuilder的区别："><a href="#String、StringBuffer、StringBuilder的区别：" class="headerlink" title="String、StringBuffer、StringBuilder的区别："></a>String、StringBuffer、StringBuilder的区别：</h3><p>String： 字符串常量<br>StringBuffer: 字符串变量（线程安全） 多线程下有优势<br>StringBuilder: 字符串变量（非线程安全） 单线程下有优势</p>
+<h3 id="Array、ArrayList、Vectory、LinkedList的区别：-推荐看源码"><a href="#Array、ArrayList、Vectory、LinkedList的区别：-推荐看源码" class="headerlink" title="Array、ArrayList、Vectory、LinkedList的区别：(推荐看源码)"></a>Array、ArrayList、Vectory、LinkedList的区别：(推荐看源码)</h3><p>ArrayList是为可变数组实现的，当更多的元素添加到ArrayList的时候，它的大小会动态增大。它的元素可以通过get/set方法直接访问，因为ArrayList本质上是一个数组。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Resizable-array implementation of the &#123;<span class="doctag">@code</span> List&#125; interface.  Implements</span></span><br><span class="line"><span class="comment"> * all optional list operations, and permits all elements, including</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@code</span> null&#125;.  In addition to implementing the &#123;<span class="doctag">@code</span> List&#125; interface,</span></span><br><span class="line"><span class="comment"> * this class provides methods to manipulate the size of the array that is</span></span><br><span class="line"><span class="comment"> * used internally to store the list.  (This class is roughly equivalent to</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@code</span> Vector&#125;, except that it is unsynchronized.)</span></span><br><span class="line"><span class="comment">  * &lt;p&gt;The &#123;<span class="doctag">@code</span> size&#125;, &#123;<span class="doctag">@code</span> isEmpty&#125;, &#123;<span class="doctag">@code</span> get&#125;, &#123;<span class="doctag">@code</span> set&#125;,</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@code</span> iterator&#125;, and &#123;<span class="doctag">@code</span> listIterator&#125; operations run in constant</span></span><br><span class="line"><span class="comment"> * time.  The &#123;<span class="doctag">@code</span> add&#125; operation runs in &lt;i&gt;amortized constant time&lt;/i&gt;,</span></span><br><span class="line"><span class="comment"> * that is, adding n elements requires O(n) time.  All of the other operations</span></span><br><span class="line"><span class="comment"> * run in linear time (roughly speaking).  The constant factor is low compared</span></span><br><span class="line"><span class="comment"> * to that for the &#123;<span class="doctag">@code</span> LinkedList&#125; implementation.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
+<p>LinkedList是为双向链表实现的,非线程安全(not )<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Doubly-linked list implementation of the &#123;<span class="doctag">@code</span> List&#125; and &#123;<span class="doctag">@code</span> Deque&#125;</span></span><br><span class="line"><span class="comment"> * interfaces.  Implements all optional list operations, and permits all</span></span><br><span class="line"><span class="comment"> * elements (including &#123;<span class="doctag">@code</span> null&#125;).</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;All of the operations perform as could be expected for a doubly-linked</span></span><br><span class="line"><span class="comment"> * list.  Operations that index into the list will traverse the list from</span></span><br><span class="line"><span class="comment"> * the beginning or the end, whichever is closer to the specified index.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;&lt;strong&gt;Note that this implementation is not synchronized.&lt;/strong&gt;</span></span><br><span class="line"><span class="comment"> * If multiple threads access a linked list concurrently, and at least</span></span><br><span class="line"><span class="comment"> * one of the threads modifies the list structurally, it &lt;i&gt;must&lt;/i&gt; be</span></span><br><span class="line"><span class="comment"> * synchronized externally.  (A structural modification is any operation</span></span><br><span class="line"><span class="comment"> * that adds or deletes one or more elements; merely setting the value of</span></span><br><span class="line"><span class="comment"> * an element is not a structural modification.)  This is typically</span></span><br><span class="line"><span class="comment"> * accomplished by synchronizing on some object that naturally</span></span><br><span class="line"><span class="comment"> * encapsulates the list.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
+<p>Vector与ArrayList相似，但是它是同步的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The &#123;<span class="doctag">@code</span> Vector&#125; class implements a growable array of</span></span><br><span class="line"><span class="comment"> * objects. Like an array, it contains components that can be</span></span><br><span class="line"><span class="comment"> * accessed using an integer index. However, the size of a</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@code</span> Vector&#125; can grow or shrink as needed to accommodate</span></span><br><span class="line"><span class="comment"> * adding and removing items after the &#123;<span class="doctag">@code</span> Vector&#125; has been created.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Each vector tries to optimize storage management by maintaining a</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@code</span> capacity&#125; and a &#123;<span class="doctag">@code</span> capacityIncrement&#125;. The</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@code</span> capacity&#125; is always at least as large as the vector</span></span><br><span class="line"><span class="comment"> * size; it is usually larger because as components are added to the</span></span><br><span class="line"><span class="comment"> * vector, the vector's storage increases in chunks the size of</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@code</span> capacityIncrement&#125;. An application can increase the</span></span><br><span class="line"><span class="comment"> * capacity of a vector before inserting a large number of</span></span><br><span class="line"><span class="comment"> * components; this reduces the amount of incremental reallocation.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
+<p>如果你的程序是线程安全的，ArrayList是一个比较好的选择。当更多的元素被添加的时候，Vector和ArrayList需要更多的空间。Vector每次扩容会增加一倍的空间，而ArrayList增加50%。</p>
+<p>注意：ArrayList默认的初始空间大小相当的小，通过构造函数去初始化一个更大的空间是一个好习惯，可以避免扩容开销。<br>部分引自于：<a href="https://www.cnblogs.com/chenpi/p/5505375.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenpi/p/5505375.html</a> </p>
+<h3 id="Map、List、Set、Array的区别："><a href="#Map、List、Set、Array的区别：" class="headerlink" title="Map、List、Set、Array的区别："></a>Map、List、Set、Array的区别：</h3><p><a href="https://www.cnblogs.com/chuanheliu/p/6363948.html" target="_blank" rel="noopener">https://www.cnblogs.com/chuanheliu/p/6363948.html</a></p>
+<h3 id="Iterator-的hasNext方法和next方法"><a href="#Iterator-的hasNext方法和next方法" class="headerlink" title="Iterator 的hasNext方法和next方法:"></a>Iterator 的hasNext方法和next方法:</h3><p>hasNext():如果仍有元素可以迭代，则返回 true。（换句话说，如果 next 返回了元素而不是抛出异常，则返回 true）。<br>next():返回迭代的下一个元素。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns &#123;<span class="doctag">@code</span> true&#125; if the iteration has more elements.</span></span><br><span class="line"><span class="comment"> * (In other words, returns &#123;<span class="doctag">@code</span> true&#125; if &#123;<span class="doctag">@link</span> #next&#125; would</span></span><br><span class="line"><span class="comment"> * return an element rather than throwing an exception.)</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if the iteration has more elements</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns the next element in the iteration.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the next element in the iteration</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> NoSuchElementException if the iteration has no more elements</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">E <span class="title">next</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="JAVA多线程和并发基础面试问答"><a href="#JAVA多线程和并发基础面试问答" class="headerlink" title="JAVA多线程和并发基础面试问答:"></a>JAVA多线程和并发基础面试问答:</h3><p><a href="http://www.cnblogs.com/dolphin0520/p/3932934.html" target="_blank" rel="noopener">http://www.cnblogs.com/dolphin0520/p/3932934.html</a></p>
+<h3 id="Oracle数据库中TRUNCATE-与-DELETE-的区别："><a href="#Oracle数据库中TRUNCATE-与-DELETE-的区别：" class="headerlink" title="Oracle数据库中TRUNCATE 与 DELETE 的区别："></a>Oracle数据库中TRUNCATE 与 DELETE 的区别：</h3><ol>
+<li>ROLLBACK可以撤销DELETE操作但撤销不了TRUNCATE操作</li>
+<li>TRUNCATE TABLE比DELETE的速度快；</li>
+<li>TRUNCATE TABLE是删除表的所有行，而DELETE是删除表的一行或者多行</li>
+<li>TRUNCATE TABLE在遇到任何一行违反约束(外键约束)时仍然删除表的所有行，但表的结构及其列、约束、索引等保持不变，DELETE则直接返回报错。</li>
+<li>对于被外键约束的表，不能使用TRUNCATE TABLE，而应该使用不带WHERE语句的DELETE语句。</li>
+<li>如果想保留标识计数值，要用DELETE，因为TRUNCATE TABLE会对新行标志符列搜用的计数值重置为该列的种子。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/28/面试-Java基础知识/" data-id="cjp9wac5u000qtkc2dsahsimr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/01/Git-基本操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Git 基本操作
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWEB/">JavaWEB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/">Tomcat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaWEB/" style="font-size: 20px;">JavaWEB</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/tags/Tomcat/" style="font-size: 20px;">Tomcat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/04/C++标准模板库STL学习笔记/">C++标准模板库STL学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/27/Tomcat的探索/">Tomcat的探索</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/26/REST学习/">WebService学习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/CentOS安装Tomcat/">CentOS安装Tomcat</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

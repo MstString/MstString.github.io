@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Git 基本操作 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Git Bash的简单使用方法。">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 基本操作">
+<meta property="og:url" content="http://yoursite.com/2017/08/01/Git-基本操作/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Git Bash的简单使用方法。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-27T14:45:10.671Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 基本操作">
+<meta name="twitter:description" content="Git Bash的简单使用方法。">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Git-基本操作" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/01/Git-基本操作/" class="article-date">
+  <time datetime="2017-08-01T09:43:03.000Z" itemprop="datePublished">2017-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git 基本操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Git Bash的简单使用方法。</p>
+<a id="more"></a>
+<p>首先连接到国际互联网:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 不需要的就不用了</span><br><span class="line">export http_proxy=&quot;http://127.0.0.1:1080/&quot;</span><br><span class="line">export https_proxy=&quot;http://127.0.0.1:1080/&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-创建代码仓库"><a href="#1-创建代码仓库" class="headerlink" title="1.创建代码仓库"></a>1.创建代码仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name </span><br><span class="line">&quot;String&quot;</span><br><span class="line">git config --global user.email </span><br><span class="line">&quot;xxx@gmail.com&quot;</span><br><span class="line">//建立代码仓库(在指定目录建立.git文件夹)</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h3 id="2-提交本地代码"><a href="#2-提交本地代码" class="headerlink" title="2.提交本地代码"></a>2.提交本地代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add READEME.txt</span><br><span class="line">//在 -m 后面加上声明</span><br><span class="line">git commit -m &quot;Wrote a READEME file&quot;</span><br></pre></td></tr></table></figure>
+<p><strong>注释</strong><br>可以在代码仓库的根目录下创建一个名为.gitignore的文件，然后编辑里面的内容，把不需提交的文件忽略掉！</p>
+<h3 id="3-查看修改的内容"><a href="#3-查看修改的内容" class="headerlink" title="3.查看修改的内容"></a>3.查看修改的内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br><span class="line">//&quot;+&quot;号表示新增内容， &quot;-&quot;号表示删除的内容</span><br></pre></td></tr></table></figure>
+<h3 id="4-查看提交记录"><a href="#4-查看提交记录" class="headerlink" title="4.查看提交记录"></a>4.查看提交记录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>此次提交对应的版本号</li>
+<li>提交人：姓名 邮箱</li>
+<li>提交的时间</li>
+<li>提交版本修改的内容：就是我们commit -m  “xxx”里的xxx</li>
+</ul>
+</blockquote>
+<h3 id="5-撤销未提交的更改"><a href="#5-撤销未提交的更改" class="headerlink" title="5.撤销未提交的更改"></a>5.撤销未提交的更改</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 文件路径</span><br></pre></td></tr></table></figure>
+<p>当然，如果我们已经add了的话，那么checkout是没任何作用的，我们要先取消添加才可以撤回提交，使用下述指令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD 文件路径</span><br><span class="line">git checkout 文件路径</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-版本回退"><a href="#6-版本回退" class="headerlink" title="6.版本回退"></a>6.版本回退</h3><p>提交后回退到上一个版本</p>
+<blockquote>
+<ul>
+<li>需要版本号</li>
+<li>HEAD代表当前版本, HEAD^表示上一个版本, 以此类推</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line">git log</span><br></pre></td></tr></table></figure>
+<p>如果你又后悔了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure></p>
+<p>键入版本号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 版本号(你要回退的版本号)</span><br></pre></td></tr></table></figure></p>
+<p>又会回到你期望的版本！</p>
+<h3 id="tips：-查看DNS记录的命令（A记录、MX记录）"><a href="#tips：-查看DNS记录的命令（A记录、MX记录）" class="headerlink" title="tips： 查看DNS记录的命令（A记录、MX记录）"></a>tips： 查看DNS记录的命令（A记录、MX记录）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-utils</span><br><span class="line"></span><br><span class="line">dig +noall +answer www.leezy.top</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/01/Git-基本操作/" data-id="cjp9wac530005tkc2gfpbnj9n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/09/数据库设计技巧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据库设计技巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/28/面试-Java基础知识/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">面试-Java基础知识</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWEB/">JavaWEB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/">Tomcat</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaWEB/" style="font-size: 20px;">JavaWEB</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/TensorFlow/" style="font-size: 10px;">TensorFlow</a> <a href="/tags/Tomcat/" style="font-size: 20px;">Tomcat</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/04/C++标准模板库STL学习笔记/">C++标准模板库STL学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/04/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/27/Tomcat的探索/">Tomcat的探索</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/26/REST学习/">WebService学习</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/20/CentOS安装Tomcat/">CentOS安装Tomcat</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

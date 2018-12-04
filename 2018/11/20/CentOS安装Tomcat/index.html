@@ -5,15 +5,22 @@
   
 
   
-  <title>Archives: 2018 | Hexo</title>
+  <title>CentOS安装Tomcat | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="系统：CentOS Linux release 7.5.1804Tomcat版本： apache-tomcat-7.0.92.tar.gz">
+<meta name="keywords" content="Tomcat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS安装Tomcat">
+<meta property="og:url" content="http://yoursite.com/2018/11/20/CentOS安装Tomcat/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="系统：CentOS Linux release 7.5.1804Tomcat版本： apache-tomcat-7.0.92.tar.gz">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/assets/blogImg/Tomcat控制台.png">
+<meta property="og:updated_time" content="2018-11-20T15:15:13.739Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="CentOS安装Tomcat">
+<meta name="twitter:description" content="系统：CentOS Linux release 7.5.1804Tomcat版本： apache-tomcat-7.0.92.tar.gz">
+<meta name="twitter:image" content="http://yoursite.com/assets/blogImg/Tomcat控制台.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,154 +67,69 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/04/C++标准模板库STL学习笔记/" class="archive-article-date">
-  <time datetime="2018-12-04T15:18:25.023Z" itemprop="datePublished">Dec 4</time>
+        <section id="main"><article id="post-CentOS安装Tomcat" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/20/CentOS安装Tomcat/" class="article-date">
+  <time datetime="2018-11-20T14:46:41.000Z" itemprop="datePublished">2018-11-20</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/04/C++标准模板库STL学习笔记/">C++标准模板库STL学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      CentOS安装Tomcat
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/04/hello-world/" class="archive-article-date">
-  <time datetime="2018-12-04T14:37:58.491Z" itemprop="datePublished">Dec 4</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/04/hello-world/">Hello World</a>
-    </h1>
-  
+        <p>系统：CentOS Linux release 7.5.1804<br>Tomcat版本： apache-tomcat-7.0.92.tar.gz</p>
+<a id="more"></a>
+<h3 id="1-下载Tomcat"><a href="#1-下载Tomcat" class="headerlink" title="1. 下载Tomcat"></a>1. 下载Tomcat</h3><p>下载链接：<a href="https://www-us.apache.org/dist/tomcat/tomcat-7/v7.0.92/bin/apache-tomcat-7.0.92.tar.gz" target="_blank" rel="noopener">https://www-us.apache.org/dist/tomcat/tomcat-7/v7.0.92/bin/apache-tomcat-7.0.92.tar.gz</a></p>
+<h3 id="2-解压缩文件"><a href="#2-解压缩文件" class="headerlink" title="2. 解压缩文件"></a>2. 解压缩文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-tomcat-7.0.92.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="3-打开8080端口并重启防火墙"><a href="#3-打开8080端口并重启防火墙" class="headerlink" title="3. 打开8080端口并重启防火墙"></a>3. 打开8080端口并重启防火墙</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<h3 id="4-配置tomcat-users-xml"><a href="#4-配置tomcat-users-xml" class="headerlink" title="4. 配置tomcat-users.xml"></a>4. 配置tomcat-users.xml</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在最后添加用户角色用户名密码 参数意义可以在自带的文档上查看--&gt;</span><br><span class="line">&lt;role rolename="admin-gui"/&gt;</span><br><span class="line">&lt;role rolename="manager-gui"/&gt;</span><br><span class="line">&lt;role rolename="manager-jmx"/&gt;</span><br><span class="line">&lt;user username="admin" password="admin" roles="admin-gui,manager-gui,manager-jmx" /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="5-访问Tomcat-Manager"><a href="#5-访问Tomcat-Manager" class="headerlink" title="5. 访问Tomcat Manager"></a>5. 访问Tomcat Manager</h3><p>访问地址： <a href="http://192.168.56.101:8080/" target="_blank" rel="noopener">http://192.168.56.101:8080/</a> 并登陆 admin admin<br><img src="/assets/blogImg/Tomcat控制台.png" alt="Tomcat控制台"></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/27/Tomcat的探索/" class="archive-article-date">
-  <time datetime="2018-11-27T07:56:25.000Z" itemprop="datePublished">Nov 27</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/27/Tomcat的探索/">Tomcat的探索</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/26/REST学习/" class="archive-article-date">
-  <time datetime="2018-11-26T06:34:25.000Z" itemprop="datePublished">Nov 26</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/20/CentOS安装Tomcat/" data-id="cjp9wac4k0000tkc2qiazdkeq" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/26/REST学习/">WebService学习</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/20/CentOS安装Tomcat/" class="archive-article-date">
-  <time datetime="2018-11-20T14:46:41.000Z" itemprop="datePublished">Nov 20</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/20/CentOS安装Tomcat/">CentOS安装Tomcat</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tomcat/">Tomcat</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/20/MongoDB安装/" class="archive-article-date">
-  <time datetime="2018-11-20T01:08:25.000Z" itemprop="datePublished">Nov 20</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/20/MongoDB安装/">MongoDB安装</a>
-    </h1>
+    <a href="/2018/11/26/REST学习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          WebService学习
+        
+      </div>
+    </a>
   
+  
+    <a href="/2018/11/20/MongoDB安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MongoDB安装</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/03/06/TensorFlow实验记录/" class="archive-article-date">
-  <time datetime="2018-03-06T03:28:53.000Z" itemprop="datePublished">Mar 6</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/06/TensorFlow实验记录/">TensorFlow实验记录</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         
