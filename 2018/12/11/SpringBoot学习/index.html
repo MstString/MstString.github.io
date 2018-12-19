@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="SAKURA">
 <meta property="og:description" content="Spring Boot makes it easy to create stand-alone, production-grade Spring-based Applications that you can run.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-12T02:39:41.348Z">
+<meta property="og:updated_time" content="2018-12-19T02:06:26.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot学习">
 <meta name="twitter:description" content="Spring Boot makes it easy to create stand-alone, production-grade Spring-based Applications that you can run.">
@@ -85,17 +85,35 @@
       
         <p>Spring Boot makes it easy to create stand-alone, production-grade Spring-based Applications that you can run.</p>
 <a id="more"></a>
-<h2 id="1-常见注解"><a href="#1-常见注解" class="headerlink" title="1. 常见注解"></a>1. 常见注解</h2><h3 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h3><p>The @RequestMapping annotation provides “routing” information. It tells Spring that any HTTP request with the / path should be mapped to the home method. </p>
+<h2 id="1-常见注解"><a href="#1-常见注解" class="headerlink" title="1. 常见注解"></a>1. 常见注解</h2><h3 id="RequestMapping-GetMapping-amp-PostMapping"><a href="#RequestMapping-GetMapping-amp-PostMapping" class="headerlink" title="@RequestMapping (@GetMapping &amp; @PostMapping)"></a>@RequestMapping (@GetMapping &amp; @PostMapping)</h3><p>The @RequestMapping annotation provides “routing” information. It tells Spring that any HTTP request with the / path should be mapped to the home method.<br>@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。<br>@PostMapping是一个组合注解，是@RequestMapping(method = RequestMethod.POST)的缩写。</p>
 <h3 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h3><p>The @RestController annotation tells Spring to render the resulting string directly back to the caller.</p>
 <h3 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h3><p>Since spring-boot-starter-web added Tomcat and Spring MVC, the auto-configuration assumes that you are developing a web application and sets up Spring accordingly.</p>
-<h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h3><p>The @SpringBootApplication annotation is often placed on your main class, and it implicitly defines a base “search package” for certain items.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.myapplication;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h3><p>The @SpringBootApplication annotation is often placed on your main class, and it implicitly defines a base “search package” for certain items. same as @Configuration，@EnableAutoConfiguration, @ComponentScan.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.myapplication;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h3><p>Declare the configuration Classes.</p>
 <h3 id="EnableAutoConfiguration-1"><a href="#EnableAutoConfiguration-1" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h3><p>If you find that specific auto-configuration classes that you do not want are being applied, you can use the exclude attribute of @EnableAutoConfiguration to disable them.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.jdbc.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>(exclude=&#123;DataSourceAutoConfiguration.class&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfiguration</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>单元测试常用注解</strong></p>
+<h3 id="RunWith-SpringJUnit4ClassRunner-class"><a href="#RunWith-SpringJUnit4ClassRunner-class" class="headerlink" title="@RunWith(SpringJUnit4ClassRunner.class)"></a>@RunWith(SpringJUnit4ClassRunner.class)</h3><p>引入Spring对JUnit4的支持。</p>
+<h3 id="SpringApplicationConfiguration-classes-HelloApplication-class"><a href="#SpringApplicationConfiguration-classes-HelloApplication-class" class="headerlink" title="@SpringApplicationConfiguration(classes = HelloApplication.class)"></a>@SpringApplicationConfiguration(classes = HelloApplication.class)</h3><p>指定SpringBoot的启动类</p>
+<h3 id="WebAppConfiguration"><a href="#WebAppConfiguration" class="headerlink" title="@WebAppConfiguration"></a>@WebAppConfiguration</h3><p>开启Web应用配置，用于模拟ServletContext</p>
+<h3 id="Before-amp-Test-amp-After"><a href="#Before-amp-Test-amp-After" class="headerlink" title="@Before &amp; @Test &amp; @After"></a>@Before &amp; @Test &amp; @After</h3><p>@Before：JUnit中定义在测试用例@Test内容执行前预加载的内容，同理判断。</p>
+<h2 id="2-Starter-POMs"><a href="#2-Starter-POMs" class="headerlink" title="2. Starter POMs"></a>2. Starter POMs</h2><p>命名规则都是spring-boot-starter-<em>，</em>代表一个特别的应用功能模块。</p>
+<h3 id="spring-boot-starter-web"><a href="#spring-boot-starter-web" class="headerlink" title="spring-boot-starter-web"></a>spring-boot-starter-web</h3><p>全栈Web开发模块，包含嵌入式的Tomcat、SpringMVC</p>
+<h3 id="spring-boot-starter-test"><a href="#spring-boot-starter-test" class="headerlink" title="spring-boot-starter-test"></a>spring-boot-starter-test</h3><p>包含Junit、Hamcrest、Mockito</p>
+<h3 id="spring-boot-starter-actuator"><a href="#spring-boot-starter-actuator" class="headerlink" title="spring-boot-starter-actuator"></a>spring-boot-starter-actuator</h3><p>为SpringBoot构建的应用提供一系列用于监控的端点。<br>/autoconfig: 获取应用自动化配置报告</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>SpringBoot的默认配置文件位置是src/main/resources/application.properties.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#application.properties</span><br><span class="line">book.name=JAVA编程思想</span><br><span class="line">book.author=Bruce Eckel</span><br></pre></td></tr></table></figure></p>
+<p>应用中可以使用 @Vlaue注解来加载这些自定义的参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;book.name&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="meta">@value</span>(<span class="string">"$&#123;book.author&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String author;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Java代码中引用有以下两种方式：</p>
+<ol>
+<li>PlaceHolder方式 ${…}</li>
+<li>SpEL表达式 #{…}</li>
+</ol>
+<p>通过application-{profile}多环境配置文件：<br>application-dev.properties:开发环境<br>application-test.properties:测试环境<br>application-prod.properties:生产环境<br>在application.properties中的spring.profiles.active属性来设置。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 调用测试环境</span><br><span class="line">spring.profiles.active = test;</span><br></pre></td></tr></table></figure></p>
+<p>在采用java -jar xxx.jar 形式运行项目时，”–”就是对application.properties中的属性值进行赋值的标识。<br>配置文件的优先级顺序如下：<br>命令行输入 &gt; 包外 &gt; 包内</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.leezy.top/2018/12/11/SpringBoot学习/" data-id="cjpkwopvm0006i0c2td4uyk97" class="article-share-link">Share</a>
+      <a data-url="https://www.leezy.top/2018/12/11/SpringBoot学习/" data-id="cjpujezop00041gc2wya2hdsx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWEB/">JavaWEB</a></li></ul>
@@ -105,6 +123,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/12/18/SpringCloud学习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SpringCloud学习
+        
+      </div>
+    </a>
   
   
     <a href="/2018/11/26/WebService学习/" id="article-nav-older" class="article-nav-link-wrap">
@@ -128,7 +155,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWEB/">JavaWEB</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/">Tomcat</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWEB/">JavaWEB</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TensorFlow/">TensorFlow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/">Tomcat</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -147,7 +174,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -158,6 +185,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/12/18/SpringCloud学习/">SpringCloud学习</a>
+          </li>
         
           <li>
             <a href="/2018/12/11/SpringBoot学习/">SpringBoot学习</a>
@@ -173,10 +204,6 @@
         
           <li>
             <a href="/2018/11/20/MongoDB安装/">MongoDB安装</a>
-          </li>
-        
-          <li>
-            <a href="/2018/03/06/TensorFlow实验记录/">TensorFlow实验记录</a>
           </li>
         
       </ul>
