@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,7 +80,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.6.0',
     sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="SAKURA">
 <meta property="og:description" content="SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-20T03:14:55.172Z">
+<meta property="og:updated_time" content="2018-12-20T06:49:19.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringCloud学习">
 <meta name="twitter:description" content="SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。">
@@ -356,7 +356,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-20 11:14:55" itemprop="dateModified" datetime="2018-12-20T11:14:55+08:00">2018-12-20</time>
+                <time title="修改时间：2018-12-20 14:49:19" itemprop="dateModified" datetime="2018-12-20T14:49:19+08:00">2018-12-20</time>
               
             
           </span>
@@ -369,14 +369,18 @@
 
           
           
-
+             <span id="/2018/12/18/SpringCloud学习/" class="leancloud_visitors" data-flag-title="SpringCloud学习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
+
           
 
           
@@ -398,7 +402,7 @@
       
         <p>SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。</p>
 <a id="more"></a>
-<p>应用架构的发展历程：<br>单体应用架构 –&gt; 分布式架构 –&gt;面向服务的SOA架构 –&gt; 微服务架构<br>SOA架构个人理解是多个应用之间通过网络通信的架构，其应用程序通过网络协议提供服务，消费服务，不同业务提供不同的服务。(阿里的服务治理框架Dubbo)</p>
+<p>应用架构的发展历程：<br>单体应用架构 –&gt; 分布式架构 –&gt;面向服务的SOA架构 –&gt; 微服务架构<br>SOA架构个人理解是多个应用之间通过企业数据总线ESB通信的架构，其应用程序通过网络协议提供服务，消费服务，不同业务提供不同的服务。(阿里的服务治理框架Dubbo)<br>微服务架构：一个大型的应用拆分为多个相互独立的微服务，每个服务之间松耦合，通过REST API或者HTTP进行通信。</p>
 <p>SpringCloud包包含以下组件：<br>服务治理组件 Eureka + 客户端负载均衡组件 Ribbon + 声明式服务调用组件 Feign + API网关治理组件 Zuul + 分布式配置中心组件 Config + 消息总线组件Bus + 消息驱动组件 Stream + 分布式服务跟踪组件 Sleuth.</p>
 <h2 id="服务治理：Spring-Cloud-Eureka"><a href="#服务治理：Spring-Cloud-Eureka" class="headerlink" title="服务治理：Spring Cloud Eureka"></a>服务治理：Spring Cloud Eureka</h2><p>负责微服务架构中的服务治理功能，即各个微服务实例的自动化注册与发现。<br>SpringCloud Eureka 是由 Netflix Eureka实现的，即包含了服务端组件也包含了客户端组件。<br>Eureka服务端也被称为服务注册中心，代码如下：<br>在<a href="https://start.spring.io/" target="_blank" rel="noopener">https://start.spring.io/</a> 中新建一个Eureka Server的Demo，或者直接在pom.xml文件中添加如下Dependence:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>EurekaServerApplication.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.eurekaserver;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 该注解启动一个服务注册中心提供给其他应用会话</span></span><br><span class="line"><span class="meta">@EnableEurekaServer</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EurekaServerApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(EurekaServerApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -560,21 +564,6 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/MstString" title="GitHub &rarr; https://github.com/MstString" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-            </div>
-          
 
           
 
@@ -639,30 +628,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.6.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v6.6.0</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv" title="总访客量">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="site-pv" title="总访问量">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -709,6 +680,12 @@
 
 
 
+
+  
+    
+      
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
 
@@ -786,6 +763,67 @@
 
 
   
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "tdvMb2E4CfK077KFm5aDvXV7-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "tdvMb2E4CfK077KFm5aDvXV7-gzGzoHsz",
+                'X-LC-Key': "wPLAP3mIpwojzLkmbeiNMEoP",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
 
   
 
