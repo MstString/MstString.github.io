@@ -112,10 +112,12 @@
 <meta property="og:site_name" content="SAKURA">
 <meta property="og:description" content="SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-20T06:49:19.312Z">
+<meta property="og:image" content="https://www.leezy.top/assets/blogImg/SOA_VS_微服务.png">
+<meta property="og:updated_time" content="2018-12-20T08:20:05.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringCloud学习">
 <meta name="twitter:description" content="SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。">
+<meta name="twitter:image" content="https://www.leezy.top/assets/blogImg/SOA_VS_微服务.png">
 
 
 
@@ -356,7 +358,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-20 14:49:19" itemprop="dateModified" datetime="2018-12-20T14:49:19+08:00">2018-12-20</time>
+                <time title="修改时间：2018-12-20 16:20:05" itemprop="dateModified" datetime="2018-12-20T16:20:05+08:00">2018-12-20</time>
               
             
           </span>
@@ -412,8 +414,8 @@
       
         <p>SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。</p>
 <a id="more"></a>
-<p>应用架构的发展历程：<br>单体应用架构 –&gt; 分布式架构 –&gt;面向服务的SOA架构 –&gt; 微服务架构<br>SOA架构个人理解是多个应用之间通过企业数据总线ESB通信的架构，其应用程序通过网络协议提供服务，消费服务，不同业务提供不同的服务。(阿里的服务治理框架Dubbo)<br>微服务架构：一个大型的应用拆分为多个相互独立的微服务，每个服务之间松耦合，通过REST API或者HTTP进行通信。</p>
-<p>SpringCloud包包含以下组件：<br>服务治理组件 Eureka + 客户端负载均衡组件 Ribbon + 声明式服务调用组件 Feign + API网关治理组件 Zuul + 分布式配置中心组件 Config + 消息总线组件Bus + 消息驱动组件 Stream + 分布式服务跟踪组件 Sleuth.</p>
+<p>应用架构的发展历程：<br>单体应用架构 –&gt; 分布式架构 –&gt;面向服务的SOA架构 –&gt; 微服务架构<br>SOA架构个人理解是多个应用之间通过企业数据总线ESB通信的架构，其应用程序通过网络协议提供服务，消费服务，不同业务提供不同的服务。(阿里的服务治理框架Dubbo)<br>微服务架构：一个大型的应用拆分为多个相互独立的微服务，每个服务之间松耦合，通过REST API或者HTTP进行通信。<br><img src="/assets/blogImg/SOA_VS_微服务.png" alt="SOA VS MA"></p>
+<p>SpringCloud包包含以下组件：<br>服务治理组件 Eureka + 客户端负载均衡组件 Ribbon + 声明式服务调用组件 Feign + API网关治理组件 Zuul / GateWay + 熔断机制 HyStrix + 分布式配置中心组件 Spring Cloud Config + 消息总线组件 Bus + 消息驱动组件 Stream + 分布式服务跟踪组件 Sleuth + 全链路监控 SkyWalking.</p>
 <h2 id="服务治理：Spring-Cloud-Eureka"><a href="#服务治理：Spring-Cloud-Eureka" class="headerlink" title="服务治理：Spring Cloud Eureka"></a>服务治理：Spring Cloud Eureka</h2><p>负责微服务架构中的服务治理功能，即各个微服务实例的自动化注册与发现。<br>SpringCloud Eureka 是由 Netflix Eureka实现的，即包含了服务端组件也包含了客户端组件。<br>Eureka服务端也被称为服务注册中心，代码如下：<br>在<a href="https://start.spring.io/" target="_blank" rel="noopener">https://start.spring.io/</a> 中新建一个Eureka Server的Demo，或者直接在pom.xml文件中添加如下Dependence:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>EurekaServerApplication.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.eurekaserver;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 该注解启动一个服务注册中心提供给其他应用会话</span></span><br><span class="line"><span class="meta">@EnableEurekaServer</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EurekaServerApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(EurekaServerApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>application.properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//设置端口，防止冲突</span><br><span class="line">server.port=1111</span><br><span class="line"></span><br><span class="line">eureka.instance.hostname=localhost</span><br><span class="line">// 该项目为注册中心，所以不向注册中心注册自己</span><br><span class="line">eureka.client.register-with-eureka=false</span><br><span class="line">// 注册中心只需维护服务实例，不需检索服务</span><br><span class="line">eureka.client.fetch-registry=false</span><br><span class="line">eureka.client.serviceUrl.defaultZone=http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/</span><br></pre></td></tr></table></figure></p>
@@ -890,5 +892,5 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
