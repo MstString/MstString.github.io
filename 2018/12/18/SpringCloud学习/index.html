@@ -15,13 +15,13 @@
 <meta property="og:site_name" content="SAKURA">
 <meta property="og:description" content="SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-19T02:29:18.930Z">
+<meta property="og:updated_time" content="2018-12-19T07:21:48.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringCloud学习">
 <meta name="twitter:description" content="SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。">
   
   
-    <link rel="icon" href="/assets/avatar/favicon.ico">
+    <link rel="icon" href="/assets/avatar/favicon.png">
   
   
     <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -83,12 +83,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。<br><a id="more"></a><br>SpringCloud包包含以下组件：<br>服务治理组件 Eureka + 客户端负载均衡组件 Ribbon + 声明式服务调用组件 Feign + API网关治理组件 Zuul + 分布式配置中心组件 Config + 消息总线组件Bus + 消息驱动组件 Stream + 分布式服务跟踪组件 Sleuth.</p>
+        <p>SpringCloud提供了快速构建分布式中常见模式的工具，包括配置管理、服务发现、断路器、智能路由、微代理、控制总线等。SpringCloud的构建是基于SpringBoot的实现。</p>
+<a id="more"></a>
+<p>SpringCloud包包含以下组件：<br>服务治理组件 Eureka + 客户端负载均衡组件 Ribbon + 声明式服务调用组件 Feign + API网关治理组件 Zuul + 分布式配置中心组件 Config + 消息总线组件Bus + 消息驱动组件 Stream + 分布式服务跟踪组件 Sleuth.</p>
+<h2 id="服务治理：Spring-Cloud-Eureka"><a href="#服务治理：Spring-Cloud-Eureka" class="headerlink" title="服务治理：Spring Cloud Eureka"></a>服务治理：Spring Cloud Eureka</h2><p>负责微服务架构中的服务治理功能，即各个微服务实例的自动化注册与发现。<br>SpringCloud Eureka 是由 Netflix Eureka实现的，即包含了服务端组件也包含了客户端组件。<br>Eureka服务端也被称为服务注册中心，代码如下：<br>在<a href="https://start.spring.io/" target="_blank" rel="noopener">https://start.spring.io/</a> 中新建一个Eureka Server的Demo，或者直接在pom.xml文件中添加如下Dependence:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>EurekaServerApplication.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.eurekaserver;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 该注解启动一个服务注册中心提供给其他应用会话</span></span><br><span class="line"><span class="meta">@EnableEurekaServer</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EurekaServerApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(EurekaServerApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>application.properties<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//设置端口，防止冲突</span><br><span class="line">server.port=1111</span><br><span class="line"></span><br><span class="line">eureka.instance.hostname=localhost</span><br><span class="line">// 该项目为注册中心，所以不向注册中心注册自己</span><br><span class="line">eureka.client.register-with-eureka=false</span><br><span class="line">// 注册中心只需维护服务实例，不需检索服务</span><br><span class="line">eureka.client.fetch-registry=false</span><br><span class="line">eureka.client.serviceUrl.defaultZone=http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/</span><br></pre></td></tr></table></figure></p>
+<p>打开 <a href="http://localhost:1111/" target="_blank" rel="noopener">http://localhost:1111/</a> 看到Eureka的控制面板。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://www.leezy.top/2018/12/18/SpringCloud学习/" data-id="cjpurm1zs000924c2cq54lcb9" class="article-share-link">Share</a>
+      <a data-url="https://www.leezy.top/2018/12/18/SpringCloud学习/" data-id="cjpvzmy2400091sc2e114t5r0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWEB/">JavaWEB</a></li></ul>
