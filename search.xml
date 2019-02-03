@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Git 基本操作]]></title>
     <url>%2F2019%2F02%2F03%2FCentOS-7-Minimal%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97%2F</url>
-    <content type="text"><![CDATA[Linux常用命令(1)查看DNS记录的命令（A记录、MX记录）123yum install bind-utilsdig +noall +answer www.leezy.top (2) 查看端口常用命令：1netstat -lnp|grep 80 (3) 查看版本12ll /etc/*centos*cat /etc/centos-release Minimal版本配置 换源：http://mirrors.163.com/.help/centos.html 安装软件 12yum install net-toolsyum install wget]]></content>
+    <content type="text"><![CDATA[常用的CentOS命令总结，方便查看与记忆。 Linux常用命令(1)查看DNS记录的命令（A记录、MX记录）123yum install bind-utilsdig +noall +answer www.leezy.top (2) 查看端口常用命令：1netstat -lnp|grep 80 (3) 查看版本12ll /etc/*centos*cat /etc/centos-release Minimal版本配置###. 换源：http://mirrors.163.com/.help/centos.html 安装软件123yum install net-toolsyum install wgetyum install vim 配置JAVA环境变量1234567vim /etc/profileexport JAVA_HOME=/usr/jdk-11.0.2export CLASSPATH=.:$&#123;JAVA_HOME&#125;/jre/lib/rt.jar:$&#123;JAVA_HOME&#125;/lib/dt.jar:$&#123;JAVA_HOME&#125;/lib/tools.jarexport PATH=$PATH:$&#123;JAVA_HOME&#125;/binsource /etc/profile]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>

@@ -111,18 +111,18 @@
 
 
 
-  <meta name="description" content="Linux常用命令(1)查看DNS记录的命令（A记录、MX记录）123yum install bind-utilsdig +noall +answer www.leezy.top (2) 查看端口常用命令：1netstat -lnp|grep 80 (3) 查看版本12ll /etc/*centos*cat /etc/centos-release Minimal版本配置 换源：http://mir">
+  <meta name="description" content="常用的CentOS命令总结，方便查看与记忆。">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 基本操作">
 <meta property="og:url" content="https://www.leezy.top/2019/02/03/CentOS-7-Minimal环境配置指南/index.html">
 <meta property="og:site_name" content="SAKURA">
-<meta property="og:description" content="Linux常用命令(1)查看DNS记录的命令（A记录、MX记录）123yum install bind-utilsdig +noall +answer www.leezy.top (2) 查看端口常用命令：1netstat -lnp|grep 80 (3) 查看版本12ll /etc/*centos*cat /etc/centos-release Minimal版本配置 换源：http://mir">
+<meta property="og:description" content="常用的CentOS命令总结，方便查看与记忆。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-03T06:38:26.685Z">
+<meta property="og:updated_time" content="2019-02-03T07:06:06.262Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 基本操作">
-<meta name="twitter:description" content="Linux常用命令(1)查看DNS记录的命令（A记录、MX记录）123yum install bind-utilsdig +noall +answer www.leezy.top (2) 查看端口常用命令：1netstat -lnp|grep 80 (3) 查看版本12ll /etc/*centos*cat /etc/centos-release Minimal版本配置 换源：http://mir">
+<meta name="twitter:description" content="常用的CentOS命令总结，方便查看与记忆。">
 
 
 
@@ -409,7 +409,7 @@
                 
               
 
-              <time title="创建时间：2019-02-03 14:27:03 / 修改时间：14:38:26" itemprop="dateCreated datePublished" datetime="2019-02-03T14:27:03+08:00">2019-02-03</time>
+              <time title="创建时间：2019-02-03 14:27:03 / 修改时间：15:06:06" itemprop="dateCreated datePublished" datetime="2019-02-03T14:27:03+08:00">2019-02-03</time>
             
 
             
@@ -468,16 +468,14 @@
       
 
       
-        <h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><p>(1)查看DNS记录的命令（A记录、MX记录）<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-utils</span><br><span class="line"></span><br><span class="line">dig +noall +answer www.leezy.top</span><br></pre></td></tr></table></figure></p>
+        <p>常用的CentOS命令总结，方便查看与记忆。</p>
+<a id="more"></a>
+<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><p>(1)查看DNS记录的命令（A记录、MX记录）<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-utils</span><br><span class="line"></span><br><span class="line">dig +noall +answer www.leezy.top</span><br></pre></td></tr></table></figure></p>
 <p>(2) 查看端口常用命令：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -lnp|grep 80</span><br></pre></td></tr></table></figure></p>
 <p>(3) 查看版本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ll /etc/*centos*</span><br><span class="line">cat /etc/centos-release</span><br></pre></td></tr></table></figure></p>
-<h2 id="Minimal版本配置"><a href="#Minimal版本配置" class="headerlink" title="Minimal版本配置"></a>Minimal版本配置</h2><ol>
-<li><p>换源：<br><a href="http://mirrors.163.com/.help/centos.html" target="_blank" rel="noopener">http://mirrors.163.com/.help/centos.html</a></p>
-</li>
-<li><p>安装软件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools</span><br><span class="line">yum install wget</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+<h2 id="Minimal版本配置"><a href="#Minimal版本配置" class="headerlink" title="Minimal版本配置"></a>Minimal版本配置</h2><p>###. 换源：<br><a href="http://mirrors.163.com/.help/centos.html" target="_blank" rel="noopener">http://mirrors.163.com/.help/centos.html</a></p>
+<h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools</span><br><span class="line">yum install wget</span><br><span class="line">yum install vim</span><br></pre></td></tr></table></figure>
+<h3 id="配置JAVA环境变量"><a href="#配置JAVA环境变量" class="headerlink" title="配置JAVA环境变量"></a>配置JAVA环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/usr/jdk-11.0.2</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/jre/lib/rt.jar:$&#123;JAVA_HOME&#125;/lib/dt.jar:$&#123;JAVA_HOME&#125;/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$&#123;JAVA_HOME&#125;/bin</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -695,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Minimal版本配置"><span class="nav-number">2.</span> <span class="nav-text">Minimal版本配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Minimal版本配置"><span class="nav-number">2.</span> <span class="nav-text">Minimal版本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装软件"><span class="nav-number">2.1.</span> <span class="nav-text">安装软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置JAVA环境变量"><span class="nav-number">2.2.</span> <span class="nav-text">配置JAVA环境变量</span></a></li></ol></li></ol></div>
             
 
           </div>
