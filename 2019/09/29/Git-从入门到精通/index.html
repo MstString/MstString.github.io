@@ -121,7 +121,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/Git_git_log.png">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/Git_git_rebase_i.png">
-<meta property="og:updated_time" content="2019-10-26T08:18:08.061Z">
+<meta property="og:updated_time" content="2019-11-30T10:19:51.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git-从入门到精通">
 <meta name="twitter:description" content="Git Bash的简单使用方法。">
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-26 16:18:08" itemprop="dateModified" datetime="2019-10-26T16:18:08+08:00">2019-10-26</time>
+                <time title="修改时间：2019-11-30 18:19:51" itemprop="dateModified" datetime="2019-11-30T18:19:51+08:00">2019-11-30</time>
               
             
           </span>
@@ -500,6 +500,16 @@
 <h3 id="提交本地代码"><a href="#提交本地代码" class="headerlink" title="提交本地代码"></a>提交本地代码</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git add READEME.txt</span><br><span class="line"><span class="meta">#</span> 全部更新到暂存区</span><br><span class="line">git add .</span><br><span class="line"><span class="meta">#</span> 在 -m 后面加上声明, 将代码提交到本地仓库</span><br><span class="line">git commit -m "Wrote a READEME file"</span><br><span class="line"><span class="meta">#</span> 如果要求的提交备注特别多,可以打开一个vi编辑器</span><br><span class="line">git commit</span><br><span class="line"><span class="meta">#</span> 从本地仓库提交到远程仓库master分支</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
 <p><strong>注释</strong><br>可以在代码仓库的根目录下创建一个名为.gitignore的文件，然后编辑里面的内容，把不需提交的文件忽略掉！</p>
+<h3 id="commit前的文件状态"><a href="#commit前的文件状态" class="headerlink" title="commit前的文件状态"></a>commit前的文件状态</h3><p><code>git status</code>查看文件状态，Git在未进行commit操作之前，存在三种状态：</p>
+<blockquote>
+<p>Untracked files</p>
+</blockquote>
+<blockquote>
+<p>Changes not staged for commit</p>
+</blockquote>
+<blockquote>
+<p>Changes to be committed</p>
+</blockquote>
 <h3 id="分支的建立"><a href="#分支的建立" class="headerlink" title="分支的建立"></a>分支的建立</h3><p>早建分支, 多用分支</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 建立分支</span><br><span class="line">git branch newImage</span><br><span class="line"><span class="meta">#</span> 切换到新分支 newImage</span><br><span class="line">git checkout newImage;</span><br><span class="line"><span class="meta">#</span> 新分支代码提交</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
 
@@ -603,6 +613,9 @@
 
 <p>场景：将本地的<code>.git</code>文件删除了，本地文件也更新了，新建git仓库和远程合并</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin https://github.com/XXX/NOTES.git</span><br><span class="line"><span class="meta">#</span> 会报错，failed to push some refs to ...</span><br><span class="line">git push origin master</span><br><span class="line"><span class="meta">#</span> 这个时候需要先拉取远程的项目</span><br><span class="line">git pull origin master</span><br><span class="line"><span class="meta">#</span> 然后会报错，fatal: refusing to merge unrelated histories</span><br><span class="line">git pull origin master --allow-unrelated-histories</span><br><span class="line"><span class="meta">#</span> 然后按照要求解决冲突就好，再commit一下</span><br><span class="line">git add .</span><br><span class="line">git commit -m "fix conflicts"</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>场景：远程仓库里提交了一些不需要的文件，本地添加到<code>.gitignore</code>文件后不起作用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m 'update .gitignore'</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -724,7 +737,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -837,7 +850,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建代码仓库"><span class="nav-number">1.</span> <span class="nav-text">创建代码仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交本地代码"><span class="nav-number">2.</span> <span class="nav-text">提交本地代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的建立"><span class="nav-number">3.</span> <span class="nav-text">分支的建立</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的合并"><span class="nav-number">4.</span> <span class="nav-text">分支的合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在提交树上移动"><span class="nav-number">5.</span> <span class="nav-text">在提交树上移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销变更"><span class="nav-number">6.</span> <span class="nav-text">撤销变更</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交记录的整理"><span class="nav-number">7.</span> <span class="nav-text">提交记录的整理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看修改的内容"><span class="nav-number">8.</span> <span class="nav-text">查看修改的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交记录"><span class="nav-number">9.</span> <span class="nav-text">查看提交记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记住密码"><span class="nav-number">10.</span> <span class="nav-text">记住密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本回退"><span class="nav-number">11.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-初始化提交"><span class="nav-number">12.</span> <span class="nav-text">GitHub 初始化提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动上传脚本"><span class="nav-number">13.</span> <span class="nav-text">自动上传脚本:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用操作"><span class="nav-number">14.</span> <span class="nav-text">常用操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建代码仓库"><span class="nav-number">1.</span> <span class="nav-text">创建代码仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交本地代码"><span class="nav-number">2.</span> <span class="nav-text">提交本地代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#commit前的文件状态"><span class="nav-number">3.</span> <span class="nav-text">commit前的文件状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的建立"><span class="nav-number">4.</span> <span class="nav-text">分支的建立</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的合并"><span class="nav-number">5.</span> <span class="nav-text">分支的合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在提交树上移动"><span class="nav-number">6.</span> <span class="nav-text">在提交树上移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销变更"><span class="nav-number">7.</span> <span class="nav-text">撤销变更</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交记录的整理"><span class="nav-number">8.</span> <span class="nav-text">提交记录的整理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看修改的内容"><span class="nav-number">9.</span> <span class="nav-text">查看修改的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交记录"><span class="nav-number">10.</span> <span class="nav-text">查看提交记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记住密码"><span class="nav-number">11.</span> <span class="nav-text">记住密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本回退"><span class="nav-number">12.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-初始化提交"><span class="nav-number">13.</span> <span class="nav-text">GitHub 初始化提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动上传脚本"><span class="nav-number">14.</span> <span class="nav-text">自动上传脚本:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用操作"><span class="nav-number">15.</span> <span class="nav-text">常用操作</span></a></li></ol></div>
             
 
           </div>
@@ -888,7 +901,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共31.4k字</span>
+  <span class="post-count">博客全站共32k字</span>
 </div></div>
         
 

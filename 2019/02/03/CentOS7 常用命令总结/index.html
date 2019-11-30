@@ -119,10 +119,12 @@
 <meta property="og:site_name" content="SAKURA">
 <meta property="og:description" content="常用的CentOS命令总结，方便查看与记忆。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-18T12:12:30.737Z">
+<meta property="og:image" content="https://www.leezy.top/assets/blogImg/VirtualBox.png">
+<meta property="og:updated_time" content="2019-11-30T09:52:17.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7 常用命令总结">
 <meta name="twitter:description" content="常用的CentOS命令总结，方便查看与记忆。">
+<meta name="twitter:image" content="https://www.leezy.top/assets/blogImg/VirtualBox.png">
 
 
 
@@ -428,7 +430,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-18 20:12:30" itemprop="dateModified" datetime="2019-09-18T20:12:30+08:00">2019-09-18</time>
+                <time title="修改时间：2019-11-30 17:52:17" itemprop="dateModified" datetime="2019-11-30T17:52:17+08:00">2019-11-30</time>
               
             
           </span>
@@ -525,6 +527,21 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker system prune</span><br></pre></td></tr></table></figure>
 
 <h3 id="开放防火墙端口"><a href="#开放防火墙端口" class="headerlink" title="开放防火墙端口"></a>开放防火墙端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> --permanent 永久生效</span><br><span class="line">firewall-cmd --zone=public --add-port=9092/tcp --permanent</span><br><span class="line"><span class="meta">#</span> 重新载入</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"><span class="meta">#</span> 查看</span><br><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br><span class="line"><span class="meta">#</span> 删除</span><br><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+<h3 id="Putty连接Ubuntu虚拟机"><a href="#Putty连接Ubuntu虚拟机" class="headerlink" title="Putty连接Ubuntu虚拟机"></a>Putty连接Ubuntu虚拟机</h3><ol>
+<li>首先配置Host-Only网卡，然后点击 <img src="/assets/blogImg/VirtualBox.png" alt="VirtualBox 配置">。</li>
+<li>登入虚拟机使用<code>ifconfig -a</code>命令, 发现会有三个网卡(lo-本地、enp0s3-NET、enp0s8-Host-Only), 但是Host-Only没有IP地址</li>
+<li>输入<code>sudo dhclient enp0s8</code>, 即可获取IP地址</li>
+<li>Ubuntu 18.0新版后, <code>/etc/network/interfaces</code>的文件配置已经被弃用, <code>vim /etc/netplan/50-cloud-init.yaml</code></li>
+</ol>
+<p>配置如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file is generated from information provided by</span></span><br><span class="line"><span class="comment"># the datasource.  Changes to it will not persist across an instance.</span></span><br><span class="line"><span class="comment"># To disable cloud-init's network configuration capabilities, write a file</span></span><br><span class="line"><span class="comment"># /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:</span></span><br><span class="line"><span class="comment"># network: &#123;config: disabled&#125;</span></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line"><span class="attr">    ethernets:</span></span><br><span class="line"><span class="attr">        enp0s3:</span></span><br><span class="line"><span class="attr">            dhcp4:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">        enp0s8:</span></span><br><span class="line"><span class="attr">            dhcp4:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">            addresses:</span> <span class="string">[192.168.56.101/24]</span></span><br><span class="line"><span class="attr">            nameservers:</span> <span class="string">&#123;&#125;</span></span><br><span class="line"><span class="attr">            optional:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    version:</span> <span class="number">2</span></span><br><span class="line"><span class="string">~</span></span><br></pre></td></tr></table></figure>
+
+<p>修改完以后直接执行 <code>sudo netplan apply</code></p>
+<ol start="5">
+<li>重启ssh服务 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service ssh restart</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
 
@@ -646,7 +663,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -759,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-Minimal版本配置"><span class="nav-number">2.</span> <span class="nav-text">CentOS Minimal版本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#换源："><span class="nav-number">2.1.</span> <span class="nav-text">换源：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装软件"><span class="nav-number">2.2.</span> <span class="nav-text">安装软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置JAVA环境变量"><span class="nav-number">2.3.</span> <span class="nav-text">配置JAVA环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitLab-CE版安装"><span class="nav-number">2.4.</span> <span class="nav-text">GitLab CE版安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的网络配置"><span class="nav-number">2.5.</span> <span class="nav-text">常用的网络配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清理内存"><span class="nav-number">2.6.</span> <span class="nav-text">清理内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker配置"><span class="nav-number">2.7.</span> <span class="nav-text">Docker配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开放防火墙端口"><span class="nav-number">2.8.</span> <span class="nav-text">开放防火墙端口</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux常用命令"><span class="nav-number">1.</span> <span class="nav-text">Linux常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-Minimal版本配置"><span class="nav-number">2.</span> <span class="nav-text">CentOS Minimal版本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#换源："><span class="nav-number">2.1.</span> <span class="nav-text">换源：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装软件"><span class="nav-number">2.2.</span> <span class="nav-text">安装软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置JAVA环境变量"><span class="nav-number">2.3.</span> <span class="nav-text">配置JAVA环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitLab-CE版安装"><span class="nav-number">2.4.</span> <span class="nav-text">GitLab CE版安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的网络配置"><span class="nav-number">2.5.</span> <span class="nav-text">常用的网络配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清理内存"><span class="nav-number">2.6.</span> <span class="nav-text">清理内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker配置"><span class="nav-number">2.7.</span> <span class="nav-text">Docker配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开放防火墙端口"><span class="nav-number">2.8.</span> <span class="nav-text">开放防火墙端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Putty连接Ubuntu虚拟机"><span class="nav-number">2.9.</span> <span class="nav-text">Putty连接Ubuntu虚拟机</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -810,7 +827,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共31.4k字</span>
+  <span class="post-count">博客全站共32k字</span>
 </div></div>
         
 
