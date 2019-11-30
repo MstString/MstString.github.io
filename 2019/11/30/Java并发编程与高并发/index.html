@@ -111,17 +111,18 @@
 
 
 
-  <meta name="description" content="并发编程的基础 CPU多级缓存  时间局部性 空间局部性缓存一致性： M E S I 用于保证多个CPU Cache之间共享数据的一致M 修改状态E 独享状态S 共享状态I 无效状态  乱序执行优化  为了提高运算速度而做出违背代码原有顺序的优化  JAVA内存模型 (Java Memory Model - JMM)  Heap 堆可动态分配内存大小，生存期不需事先告诉编译器，存取速度慢，常用于存">
+  <meta name="description" content="并发编程的基础、并发模拟工具及代码。">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SAKURA">
-<meta property="og:url" content="https://www.leezy.top/2019/11/09/Java并发编程与高并发/index.html">
+<meta property="og:title" content="Java并发编程与高并发">
+<meta property="og:url" content="https://www.leezy.top/2019/11/30/Java并发编程与高并发/index.html">
 <meta property="og:site_name" content="SAKURA">
-<meta property="og:description" content="并发编程的基础 CPU多级缓存  时间局部性 空间局部性缓存一致性： M E S I 用于保证多个CPU Cache之间共享数据的一致M 修改状态E 独享状态S 共享状态I 无效状态  乱序执行优化  为了提高运算速度而做出违背代码原有顺序的优化  JAVA内存模型 (Java Memory Model - JMM)  Heap 堆可动态分配内存大小，生存期不需事先告诉编译器，存取速度慢，常用于存">
+<meta property="og:description" content="并发编程的基础、并发模拟工具及代码。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-30T09:25:19.042Z">
+<meta property="og:updated_time" content="2019-11-30T09:49:30.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SAKURA">
-<meta name="twitter:description" content="并发编程的基础 CPU多级缓存  时间局部性 空间局部性缓存一致性： M E S I 用于保证多个CPU Cache之间共享数据的一致M 修改状态E 独享状态S 共享状态I 无效状态  乱序执行优化  为了提高运算速度而做出违背代码原有顺序的优化  JAVA内存模型 (Java Memory Model - JMM)  Heap 堆可动态分配内存大小，生存期不需事先告诉编译器，存取速度慢，常用于存">
+<meta name="twitter:title" content="Java并发编程与高并发">
+<meta name="twitter:description" content="并发编程的基础、并发模拟工具及代码。">
 
 
 
@@ -130,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="https://www.leezy.top/2019/11/09/Java并发编程与高并发/">
+  <link rel="canonical" href="https://www.leezy.top/2019/11/30/Java并发编程与高并发/">
 
 
 
@@ -140,7 +141,7 @@
   };
 </script>
 
-  <title> | SAKURA</title>
+  <title>Java并发编程与高并发 | SAKURA</title>
   
 
 
@@ -367,7 +368,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.leezy.top/2019/11/09/Java并发编程与高并发/">
+    <link itemprop="mainEntityOfPage" href="https://www.leezy.top/2019/11/30/Java并发编程与高并发/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEEZY">
@@ -384,7 +385,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">Java并发编程与高并发
 
               
             
@@ -410,24 +411,12 @@
                 
               
 
-              <time title="创建时间：2019-11-09 19:59:51" itemprop="dateCreated datePublished" datetime="2019-11-09T19:59:51+08:00">2019-11-09</time>
+              <time title="创建时间：2019-11-30 00:00:00 / 修改时间：17:49:30" itemprop="dateCreated datePublished" datetime="2019-11-30T00:00:00+08:00">2019-11-30</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-11-30 17:25:19" itemprop="dateModified" datetime="2019-11-30T17:25:19+08:00">2019-11-30</time>
               
             
           </span>
@@ -441,8 +430,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/09/Java并发编程与高并发/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/11/09/Java并发编程与高并发/" itemprop="commentCount"></span>
+                <a href="/2019/11/30/Java并发编程与高并发/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/11/30/Java并发编程与高并发/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -450,7 +439,7 @@
 
           
           
-             <span id="/2019/11/09/Java并发编程与高并发/" class="leancloud_visitors" data-flag-title>
+             <span id="/2019/11/30/Java并发编程与高并发/" class="leancloud_visitors" data-flag-title="Java并发编程与高并发">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -481,7 +470,10 @@
       
 
       
-        <h3 id="并发编程的基础"><a href="#并发编程的基础" class="headerlink" title="并发编程的基础"></a>并发编程的基础</h3><blockquote>
+        <p>并发编程的基础、并发模拟工具及代码。</p>
+<a id="more"></a>
+
+<h3 id="并发编程的基础"><a href="#并发编程的基础" class="headerlink" title="并发编程的基础"></a>并发编程的基础</h3><blockquote>
 <p>CPU多级缓存</p>
 </blockquote>
 <p>时间局部性 空间局部性<br>缓存一致性： M E S I 用于保证多个CPU Cache之间共享数据的一致<br>M 修改状态<br>E 独享状态<br>S 共享状态<br>I 无效状态</p>
@@ -554,7 +546,7 @@
 <blockquote>
 <p>Semaphore - 信号量：可以阻塞线程，控制同一时间请求的并发量</p>
 </blockquote>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.leezy.concurrency;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.leezy.concurrency.annoations.NotThreadSafe;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.CountDownLatch;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Semaphore;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: spring-cloud-leezy</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 测试并发</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: LEEZY</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2019-11-30 16:03</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@NotThreadSafe</span></span><br><span class="line"><span class="comment">// count:4962 结果不准确，线程不安全</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcurrencyTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 请求总数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> clientTotal = <span class="number">5000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 同时并发执行的线程数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> threadTotal = <span class="number">200</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        count++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">// 线程池</span></span><br><span class="line">        ExecutorService executorService = Executors.newCachedThreadPool();</span><br><span class="line">        <span class="comment">// 信号量以及并发线程数</span></span><br><span class="line">        <span class="keyword">final</span> Semaphore semaphore = <span class="keyword">new</span> Semaphore(threadTotal);</span><br><span class="line">        <span class="comment">// 计数器-闭锁 放入请求总数</span></span><br><span class="line">        <span class="keyword">final</span> CountDownLatch countDownLatch = <span class="keyword">new</span> CountDownLatch(clientTotal);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; clientTotal; i++) &#123;</span><br><span class="line">            executorService.execute(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">// 根据并发的限制数量, 判断当前线程是否允许被执行</span></span><br><span class="line">                    semaphore.acquire();</span><br><span class="line">                    add();</span><br><span class="line">                    <span class="comment">// 释放线程</span></span><br><span class="line">                    semaphore.release();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    log.error(<span class="string">"exception"</span>, e);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 执行一次就进行releaseShared</span></span><br><span class="line">                countDownLatch.countDown();</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 这个方法可以保证 countDown 减为0</span></span><br><span class="line">        countDownLatch.await();</span><br><span class="line">        <span class="comment">// 关闭线程池</span></span><br><span class="line">        executorService.shutdown();</span><br><span class="line">        log.info(<span class="string">"count:"</span> + count);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -574,6 +566,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
       
 
       
@@ -830,7 +828,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共31.1k字</span>
+  <span class="post-count">博客全站共31.4k字</span>
 </div></div>
         
 
