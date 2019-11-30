@@ -15,7 +15,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -119,17 +119,19 @@
 <meta property="og:site_name" content="SAKURA">
 <meta property="og:description" content="设计数据库的一些坑的总结。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.leezy.top/assets/blogImg/有依赖的关联.png">
-<meta property="og:image" content="https://www.leezy.top/assets/blogImg/逻辑模型.png">
-<meta property="og:image" content="https://www.leezy.top/assets/blogImg/物理模型.png">
-<meta property="og:image" content="https://www.leezy.top/assets/blogImg/无依赖关联.png">
-<meta property="og:updated_time" content="2017-08-09T14:08:29.090Z">
+<meta property="og:image" content="https://www.leezy.top/assets/blogImg/%E6%9C%89%E4%BE%9D%E8%B5%96%E7%9A%84%E5%85%B3%E8%81%94.png">
+<meta property="og:image" content="https://www.leezy.top/assets/blogImg/%E9%80%BB%E8%BE%91%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="https://www.leezy.top/assets/blogImg/%E7%89%A9%E7%90%86%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="https://www.leezy.top/assets/blogImg/%E6%97%A0%E4%BE%9D%E8%B5%96%E5%85%B3%E8%81%94.png">
+<meta property="og:updated_time" content="2019-09-18T12:12:30.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库设计技巧">
 <meta name="twitter:description" content="设计数据库的一些坑的总结。">
-<meta name="twitter:image" content="https://www.leezy.top/assets/blogImg/有依赖的关联.png">
+<meta name="twitter:image" content="https://www.leezy.top/assets/blogImg/%E6%9C%89%E4%BE%9D%E8%B5%96%E7%9A%84%E5%85%B3%E8%81%94.png">
 
 
+
+  <link rel="alternate" href="/atom.xml" title="SAKURA" type="application/atom+xml">
 
 
 
@@ -185,7 +187,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -195,7 +197,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -366,20 +368,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.leezy.top/2017/08/09/数据库设计技巧/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEEZY">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="SAKURA">
     </span>
 
@@ -414,12 +416,24 @@
                 
               
 
-              <time title="创建时间：2017-08-09 09:58:25 / 修改时间：22:08:29" itemprop="dateCreated datePublished" datetime="2017-08-09T09:58:25+08:00">2017-08-09</time>
+              <time title="创建时间：2017-08-09 09:58:25" itemprop="dateCreated datePublished" datetime="2017-08-09T09:58:25+08:00">2017-08-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-18 20:12:30" itemprop="dateModified" datetime="2019-09-18T20:12:30+08:00">2019-09-18</time>
               
             
           </span>
@@ -475,13 +489,18 @@
       
         <p>设计数据库的一些坑的总结。</p>
 <a id="more"></a>
+
 <h3 id="1-Int与Integer的区别"><a href="#1-Int与Integer的区别" class="headerlink" title="1.Int与Integer的区别"></a>1.Int与Integer的区别</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 学生</span></span><br><span class="line"><span class="comment"> * 在使用Hibernate设计数据表声明数据类型时，Java代码中ID一般都设置成Integer类型，因为它可以默认为null，而</span></span><br><span class="line"><span class="comment"> * 在使用性别时，一般都是使用Int类型</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_student"</span>)</span><br><span class="line"><span class="meta">@Cache</span>(usage=CacheConcurrencyStrategy.READ_WRITE)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span>(strategy=GenerationType.IDENTITY)</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	<span class="comment">// 姓名</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="comment">// 年龄</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	<span class="comment">// 性别</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> gender;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="2-有依赖关联表与无依赖关联表"><a href="#2-有依赖关联表与无依赖关联表" class="headerlink" title="2.有依赖关联表与无依赖关联表"></a>2.有依赖关联表与无依赖关联表</h3><p><em>一张表里只能有一个主键，或者有一种情况是one primary key included two fileds.</em><br><strong>有依赖关联表：通过在用户信息表里加入用户ID实现两张表的关联。</strong></p>
-<p><img src="/assets/blogImg/有依赖的关联.png" alt="有依赖关联表"><br>具体实现：<br><strong>逻辑模型</strong><br><img src="/assets/blogImg/逻辑模型.png" alt="有依赖关联表"><br><strong>物理模型</strong></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/assets/blogImg/物理模型.png" alt="有依赖关联表"></h2><p><strong>无依赖关联表：通过引入第三张表来进行用户表与用户信息表的关联。</strong></p>
-<p><img src="/assets/blogImg/无依赖关联.png" alt="无依赖关联表"></p>
+<p><img src="/assets/blogImg/%E6%9C%89%E4%BE%9D%E8%B5%96%E7%9A%84%E5%85%B3%E8%81%94.png" alt="有依赖关联表"><br>具体实现：<br><strong>逻辑模型</strong><br><img src="/assets/blogImg/%E9%80%BB%E8%BE%91%E6%A8%A1%E5%9E%8B.png" alt="有依赖关联表"><br><strong>物理模型</strong><br><img src="/assets/blogImg/%E7%89%A9%E7%90%86%E6%A8%A1%E5%9E%8B.png" alt="有依赖关联表"></p>
+<hr>
+<p><strong>无依赖关联表：通过引入第三张表来进行用户表与用户信息表的关联。</strong></p>
+<p><img src="/assets/blogImg/%E6%97%A0%E4%BE%9D%E8%B5%96%E5%85%B3%E8%81%94.png" alt="无依赖关联表"></p>
 <h3 id="3-Hibernate中一对一、一对多以及多对多的注解实现"><a href="#3-Hibernate中一对一、一对多以及多对多的注解实现" class="headerlink" title="3.Hibernate中一对一、一对多以及多对多的注解实现"></a>3.Hibernate中一对一、一对多以及多对多的注解实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1:1 &lt;==&gt; Person:IdCard</span></span><br><span class="line"><span class="comment">// Person.java</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_person"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 姓名</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 年龄</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 身份证</span></span><br><span class="line">	<span class="meta">@OneToOne</span>(mappedBy=<span class="string">"person"</span>)  <span class="comment">//放弃维护主控权</span></span><br><span class="line">	<span class="keyword">private</span> IdCard card;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//IdCard.java</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_idcard"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdCard</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 身份证号</span></span><br><span class="line">	<span class="keyword">private</span> String sno;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 所属人</span></span><br><span class="line">	<span class="meta">@OneToOne</span></span><br><span class="line">	<span class="meta">@JoinColumn</span>(name=<span class="string">"person_id"</span>, unique=<span class="keyword">true</span>)</span><br><span class="line">	<span class="keyword">private</span> Person person;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1:n &lt;==&gt; Department:Employee</span></span><br><span class="line"><span class="comment">// Department.java</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_dept"</span>)</span><br><span class="line"><span class="meta">@Cache</span>(usage=CacheConcurrencyStrategy.READ_WRITE)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Department</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 名称</span></span><br><span class="line">	<span class="meta">@Column</span>(length = <span class="number">50</span>)</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 默认实体类所有字段都映射, 可使用@Transient声明不做映射</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> sn;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 拥有多个员工</span></span><br><span class="line">	<span class="meta">@OneToMany</span>(mappedBy = <span class="string">"dept"</span>)  <span class="comment">//mappedBy：表示放弃维护主控权</span></span><br><span class="line">	<span class="keyword">private</span> Set&lt;Employee&gt; emps = <span class="keyword">new</span> HashSet&lt;Employee&gt;();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Employee.java</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name=<span class="string">"tb_emp"</span>)</span><br><span class="line"><span class="meta">@Cache</span>(usage=CacheConcurrencyStrategy.READ_WRITE)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span>(strategy=GenerationType.IDENTITY)</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	<span class="comment">// 姓名</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 部门</span></span><br><span class="line">	<span class="meta">@ManyToOne</span></span><br><span class="line">	<span class="meta">@JoinColumn</span>(name=<span class="string">"dept_id"</span>)</span><br><span class="line">	<span class="keyword">private</span> Department dept;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// n:n &lt;==&gt; Course:Student</span></span><br><span class="line"><span class="comment">// Course.java</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_course"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	<span class="comment">// 名称</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 学生</span></span><br><span class="line">	<span class="meta">@ManyToMany</span></span><br><span class="line">	<span class="meta">@JoinTable</span>(name=<span class="string">"tb_student_course"</span>, </span><br><span class="line">			joinColumns=<span class="meta">@JoinColumn</span>(name=<span class="string">"course_id"</span>), </span><br><span class="line">			inverseJoinColumns=<span class="meta">@JoinColumn</span>(name=<span class="string">"student_id"</span>))</span><br><span class="line">	<span class="keyword">private</span> Set&lt;Student&gt; students = <span class="keyword">new</span> HashSet&lt;Student&gt;();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Student.java</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name=<span class="string">"tb_student"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Id</span></span><br><span class="line">	<span class="meta">@GeneratedValue</span>(strategy=GenerationType.IDENTITY)</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	<span class="comment">// 姓名</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="comment">// 课程</span></span><br><span class="line">	<span class="meta">@ManyToMany</span>(mappedBy=<span class="string">"students"</span>)</span><br><span class="line">	<span class="keyword">private</span> Set&lt;Course&gt; courses = <span class="keyword">new</span> HashSet&lt;Course&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -518,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/01/Git-基本操作/" rel="next" title="Git 基本操作">
-                <i class="fa fa-chevron-left"></i> Git 基本操作
+              <a href="/2017/07/28/面试-Java基础知识/" rel="next" title="面试-Java基础知识">
+                <i class="fa fa-chevron-left"></i> 面试-Java基础知识
               </a>
             
           </div>
@@ -591,7 +610,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">LEEZY</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -604,7 +623,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -658,6 +677,13 @@
           
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
           
             <div class="links-of-author motion-element">
@@ -710,7 +736,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Int与Integer的区别"><span class="nav-number">1.</span> <span class="nav-text">1.Int与Integer的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-有依赖关联表与无依赖关联表"><span class="nav-number">2.</span> <span class="nav-text">2.有依赖关联表与无依赖关联表</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Hibernate中一对一、一对多以及多对多的注解实现"><span class="nav-number">1.</span> <span class="nav-text">3.Hibernate中一对一、一对多以及多对多的注解实现</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Int与Integer的区别"><span class="nav-number">1.</span> <span class="nav-text">1.Int与Integer的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-有依赖关联表与无依赖关联表"><span class="nav-number">2.</span> <span class="nav-text">2.有依赖关联表与无依赖关联表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Hibernate中一对一、一对多以及多对多的注解实现"><span class="nav-number">3.</span> <span class="nav-text">3.Hibernate中一对一、一对多以及多对多的注解实现</span></a></li></ol></div>
             
 
           </div>
@@ -761,8 +787,8 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共25.4k字</span>
-</div>
+  <span class="post-count">博客全站共31.1k字</span>
+</div></div>
         
 
 
@@ -773,8 +799,8 @@
 
 
         
-      </div>
-    </footer>
+      </footer></div>
+    
 
     
       <div class="back-to-top">
@@ -798,7 +824,7 @@
 
       </div>
     
-  </div>
+  
 
   
 

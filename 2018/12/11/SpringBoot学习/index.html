@@ -15,7 +15,7 @@
 
 
 <html class="theme-next mist use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -119,12 +119,14 @@
 <meta property="og:site_name" content="SAKURA">
 <meta property="og:description" content="Spring Boot makes it easy to create stand-alone, production-grade Spring-based Applications that you can run.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-05T03:15:11.656Z">
+<meta property="og:updated_time" content="2019-09-18T12:12:30.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot学习">
 <meta name="twitter:description" content="Spring Boot makes it easy to create stand-alone, production-grade Spring-based Applications that you can run.">
 
 
+
+  <link rel="alternate" href="/atom.xml" title="SAKURA" type="application/atom+xml">
 
 
 
@@ -180,7 +182,7 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -190,7 +192,7 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
@@ -361,20 +363,20 @@
 
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.leezy.top/2018/12/11/SpringBoot学习/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEEZY">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="SAKURA">
     </span>
 
@@ -426,7 +428,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-05 11:15:11" itemprop="dateModified" datetime="2019-03-05T11:15:11+08:00">2019-03-05</time>
+                <time title="修改时间：2019-09-18 20:12:30" itemprop="dateModified" datetime="2019-09-18T20:12:30+08:00">2019-09-18</time>
               
             
           </span>
@@ -482,16 +484,23 @@
       
         <p>Spring Boot makes it easy to create stand-alone, production-grade Spring-based Applications that you can run.</p>
 <a id="more"></a>
+
 <h2 id="1-常见注解"><a href="#1-常见注解" class="headerlink" title="1. 常见注解"></a>1. 常见注解</h2><h3 id="RequestMapping-GetMapping-amp-PostMapping"><a href="#RequestMapping-GetMapping-amp-PostMapping" class="headerlink" title="@RequestMapping (@GetMapping &amp; @PostMapping)"></a>@RequestMapping (@GetMapping &amp; @PostMapping)</h3><p>The @RequestMapping annotation provides “routing” information. It tells Spring that any HTTP request with the / path should be mapped to the home method.<br>@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。<br>@PostMapping是一个组合注解，是@RequestMapping(method = RequestMethod.POST)的缩写。</p>
 <h3 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h3><p>The @RestController annotation tells Spring to render the resulting string directly back to the caller.<br>等价于 @Controller + @ResponseBody,为了使Http请求返回数据格式为json格式。</p>
 <h3 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h3><p>Since spring-boot-starter-web added Tomcat and Spring MVC, the auto-configuration assumes that you are developing a web application and sets up Spring accordingly.</p>
 <h3 id="ConditionalOnProperty"><a href="#ConditionalOnProperty" class="headerlink" title="@ConditionalOnProperty"></a>@ConditionalOnProperty</h3><p>可以用来控制配置是否生效。</p>
-<h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h3><p>The @SpringBootApplication annotation is often placed on your main class, and it implicitly defines a base “search package” for certain items. same as @Configuration,@EnableAutoConfiguration,@ComponentScan.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.myapplication;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h3><p>The @SpringBootApplication annotation is often placed on your main class, and it implicitly defines a base “search package” for certain items. same as @Configuration,@EnableAutoConfiguration,@ComponentScan.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.myapplication;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(Application.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h3><p>Declare the configuration Classes.</p>
-<h3 id="EnableAutoConfiguration-1"><a href="#EnableAutoConfiguration-1" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h3><p>If you find that specific auto-configuration classes that you do not want are being applied, you can use the exclude attribute of @EnableAutoConfiguration to disable them.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.jdbc.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>(exclude=&#123;DataSourceAutoConfiguration.class&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfiguration</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="EnableAutoConfiguration-1"><a href="#EnableAutoConfiguration-1" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h3><p>If you find that specific auto-configuration classes that you do not want are being applied, you can use the exclude attribute of @EnableAutoConfiguration to disable them.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.jdbc.*;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span>(exclude=&#123;DataSourceAutoConfiguration.class&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfiguration</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="EnableConfigurationProperties-和-ConfigurationProperties"><a href="#EnableConfigurationProperties-和-ConfigurationProperties" class="headerlink" title="@EnableConfigurationProperties 和 @ConfigurationProperties"></a>@EnableConfigurationProperties 和 @ConfigurationProperties</h3><p>这两个注解的作用可以参见 Spring Boot <a href="https://docs.spring.io/spring-boot/docs/2.1.0.RELEASE/reference/htmlsingle/#boot-features-external-config-typesafe-configuration-properties" target="_blank" rel="noopener">官方文档</a></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UriConfigurationProperties</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String httpbin = <span class="string">"http://httpbin.org:80"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHttpbin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> httpbin;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHttpbin</span><span class="params">(String httpbin)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.httpbin = httpbin;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.spring.cloud.gateway;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.spring.cloud.gateway.properties.UriConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.EnableConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.gateway.route.RouteLocator;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//@EnableConfigurationProperties(org.spring.cloud.gateway.properties.UriConfigurationProperties.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GateWayApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(GateWayApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RouteLocator <span class="title">myRoutes</span><span class="params">(RouteLocatorBuilder builder, UriConfigurationProperties uriConfiguration)</span> </span>&#123;</span><br><span class="line">        String httpUri = uriConfiguration.getHttpbin();</span><br><span class="line">        <span class="keyword">return</span> builder.routes()</span><br><span class="line">            .route(p -&gt; p</span><br><span class="line">                .path(<span class="string">"/get"</span>)</span><br><span class="line">                .filters(f -&gt; f.addRequestHeader(<span class="string">"Hello"</span>, <span class="string">"World"</span>))</span><br><span class="line">                .uri(httpUri))</span><br><span class="line">            .route(p -&gt; p</span><br><span class="line">                .host(<span class="string">"*.hystrix.com"</span>)</span><br><span class="line">                .filters(f -&gt; f</span><br><span class="line">                    .hystrix(config -&gt; config</span><br><span class="line">                        .setName(<span class="string">"mycmd"</span>)</span><br><span class="line">                        .setFallbackUri(<span class="string">"forward:/fallback"</span>)))</span><br><span class="line">                .uri(httpUri))</span><br><span class="line">            .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>上述两个文件位于两个包下，如果在第一个文件中使用了@Component，则在第二个文件中就不能再使用@EnableConfigurationProperties注解，否则将会报错，提示有两个Bean。<br>如果第一个文件没有使用@Component则第二个文件可以将注释去掉。</p>
 <p><strong>单元测试常用注解</strong></p>
 <h3 id="RunWith-SpringJUnit4ClassRunner-class"><a href="#RunWith-SpringJUnit4ClassRunner-class" class="headerlink" title="@RunWith(SpringJUnit4ClassRunner.class)"></a>@RunWith(SpringJUnit4ClassRunner.class)</h3><p>引入Spring对JUnit4的支持。</p>
@@ -499,20 +508,30 @@
 <h3 id="WebAppConfiguration"><a href="#WebAppConfiguration" class="headerlink" title="@WebAppConfiguration"></a>@WebAppConfiguration</h3><p>开启Web应用配置，用于模拟ServletContext</p>
 <h3 id="Before-amp-Test-amp-After"><a href="#Before-amp-Test-amp-After" class="headerlink" title="@Before &amp; @Test &amp; @After"></a>@Before &amp; @Test &amp; @After</h3><p>@Before：JUnit中定义在测试用例@Test内容执行前预加载的内容，同理判断。</p>
 <h2 id="2-Starter-POMs"><a href="#2-Starter-POMs" class="headerlink" title="2. Starter POMs"></a>2. Starter POMs</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>命名规则都是spring-boot-starter-<em>，</em>代表一个特别的应用功能模块。</p>
 <h3 id="spring-boot-starter-web"><a href="#spring-boot-starter-web" class="headerlink" title="spring-boot-starter-web"></a>spring-boot-starter-web</h3><p>全栈Web开发模块，包含嵌入式的Tomcat、SpringMVC</p>
 <h3 id="spring-boot-starter-test"><a href="#spring-boot-starter-test" class="headerlink" title="spring-boot-starter-test"></a>spring-boot-starter-test</h3><p>包含Junit、Hamcrest、Mockito</p>
-<h3 id="spring-boot-starter-actuator"><a href="#spring-boot-starter-actuator" class="headerlink" title="spring-boot-starter-actuator"></a>spring-boot-starter-actuator</h3><p>为SpringBoot构建的应用提供一系列用于监控的端点。<br>访问：<a href="http://127.0.0.1:8080/actuator" target="_blank" rel="noopener">http://127.0.0.1:8080/actuator</a><br>可以看到输出了如下JSON文件：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"_links"</span>: &#123;</span><br><span class="line">        <span class="attr">"self"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"health"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator/health"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"health-component"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator/health/&#123;component&#125;"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"health-component-instance"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator/health/&#123;component&#125;/&#123;instance&#125;"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"info"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator/info"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="spring-boot-starter-actuator"><a href="#spring-boot-starter-actuator" class="headerlink" title="spring-boot-starter-actuator"></a>spring-boot-starter-actuator</h3><p>为SpringBoot构建的应用提供一系列用于监控的端点。<br>访问：<a href="http://127.0.0.1:8080/actuator" target="_blank" rel="noopener">http://127.0.0.1:8080/actuator</a><br>可以看到输出了如下JSON文件：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"_links"</span>: &#123;</span><br><span class="line">        <span class="attr">"self"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"health"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator/health"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"health-component"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator/health/&#123;component&#125;"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"health-component-instance"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator/health/&#123;component&#125;/&#123;instance&#125;"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">true</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"info"</span>: &#123;</span><br><span class="line">            <span class="attr">"href"</span>: <span class="string">"http://127.0.0.1:8080/actuator/info"</span>,</span><br><span class="line">            <span class="attr">"templated"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="spring-boot-devtools"><a href="#spring-boot-devtools" class="headerlink" title="spring-boot-devtools"></a>spring-boot-devtools</h3><p>(1) Property Defaults<br>(2) Automatic Restart<br>(3) LiveReload<br>(4) Global Settings<br>(5) Remote Applications</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>SpringBoot的默认配置文件位置是src/main/resources/application.properties.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- application.properties --&gt;</span></span><br><span class="line">book.name=JAVA编程思想</span><br><span class="line">book.author=Bruce Eckel</span><br></pre></td></tr></table></figure></p>
-<p>应用中可以使用 @Vlaue注解来加载这些自定义的参数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;book.name&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="meta">@value</span>(<span class="string">"$&#123;book.author&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String author;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>SpringBoot的默认配置文件位置是src/main/resources/application.properties.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- application.properties --&gt;</span></span><br><span class="line">book.name=JAVA编程思想</span><br><span class="line">book.author=Bruce Eckel</span><br></pre></td></tr></table></figure>
+
+<p>应用中可以使用 @Vlaue注解来加载这些自定义的参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Book</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Value</span>(<span class="string">"$&#123;book.name&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="meta">@value</span>(<span class="string">"$&#123;book.author&#125;"</span>)</span><br><span class="line">	<span class="keyword">private</span> String author;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Java代码中引用有以下两种方式：</p>
 <ol>
 <li>PlaceHolder方式 ${…}</li>
 <li>SpEL表达式 #{…}</li>
 </ol>
-<p>通过application-{profile}多环境配置文件：<br>application-dev.properties:开发环境<br>application-test.properties:测试环境<br>application-prod.properties:生产环境<br>在application.properties中的spring.profiles.active属性来设置。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 调用测试环境</span><br><span class="line">spring.profiles.active = test;</span><br></pre></td></tr></table></figure></p>
+<p>通过application-{profile}多环境配置文件：<br>application-dev.properties:开发环境<br>application-test.properties:测试环境<br>application-prod.properties:生产环境<br>在application.properties中的spring.profiles.active属性来设置。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 调用测试环境</span><br><span class="line">spring.profiles.active = test;</span><br></pre></td></tr></table></figure>
+
 <p>在采用java -jar xxx.jar 形式运行项目时，”–”就是对application.properties中的属性值进行赋值的标识。<br>配置文件的优先级顺序如下：<br>命令行输入 &gt; 包外 &gt; 包内<br>所以可以在利用这一点来对配置进行快速准确的更改。</p>
 <h3 id="spring-factories文件"><a href="#spring-factories文件" class="headerlink" title="spring.factories文件"></a>spring.factories文件</h3><p>Spring Factories实现原理(package org.springframework.core.io.support包下的SpringFactoriesLoader.class文件;)<br>Spring 容器初始化时会加载该文件声明的类，我们可以通过@SpringBootAppl<br>spring-core包里定义了SpringFactoriesLoader类，这个类实现了检索META-INF/spring.factories文件，并获取指定接口的配置的功能。在这个类中定义了两个对外的方法：</p>
 <p>loadFactories: 根据接口类获取其实现类的实例，这个方法返回的是对象列表。<br>loadFactoryNames: 根据接口获取其接口类的名称，这个方法返回的是类名的列表。</p>
@@ -626,7 +645,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">LEEZY</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -639,7 +658,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -692,6 +711,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -796,8 +822,8 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共25.4k字</span>
-</div>
+  <span class="post-count">博客全站共31.1k字</span>
+</div></div>
         
 
 
@@ -808,8 +834,8 @@
 
 
         
-      </div>
-    </footer>
+      </footer></div>
+    
 
     
       <div class="back-to-top">
@@ -833,7 +859,7 @@
 
       </div>
     
-  </div>
+  
 
   
 
