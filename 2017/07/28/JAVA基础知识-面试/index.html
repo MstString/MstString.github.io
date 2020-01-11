@@ -111,19 +111,19 @@
 
 
 
-  <meta name="description" content="扎实基础！18.3.5日更新：碰壁并吸取经验教训！">
+  <meta name="description" content="扎实基础！">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试-Java基础知识">
-<meta property="og:url" content="https://www.leezy.top/2017/07/28/面试-Java基础知识/index.html">
+<meta property="og:url" content="https://www.leezy.top/2017/07/28/JAVA基础知识-面试/index.html">
 <meta property="og:site_name" content="SAKURA">
-<meta property="og:description" content="扎实基础！18.3.5日更新：碰壁并吸取经验教训！">
+<meta property="og:description" content="扎实基础！">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/public_protected_private_default.png">
-<meta property="og:updated_time" content="2019-12-16T06:42:57.202Z">
+<meta property="og:updated_time" content="2019-12-21T09:40:47.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试-Java基础知识">
-<meta name="twitter:description" content="扎实基础！18.3.5日更新：碰壁并吸取经验教训！">
+<meta name="twitter:description" content="扎实基础！">
 <meta name="twitter:image" content="https://www.leezy.top/assets/blogImg/public_protected_private_default.png">
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <link rel="canonical" href="https://www.leezy.top/2017/07/28/面试-Java基础知识/">
+  <link rel="canonical" href="https://www.leezy.top/2017/07/28/JAVA基础知识-面试/">
 
 
 
@@ -370,7 +370,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.leezy.top/2017/07/28/面试-Java基础知识/">
+    <link itemprop="mainEntityOfPage" href="https://www.leezy.top/2017/07/28/JAVA基础知识-面试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEEZY">
@@ -430,7 +430,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-12-16 14:42:57" itemprop="dateModified" datetime="2019-12-16T14:42:57+08:00">2019-12-16</time>
+                <time title="修改时间：2019-12-21 17:40:47" itemprop="dateModified" datetime="2019-12-21T17:40:47+08:00">2019-12-21</time>
               
             
           </span>
@@ -444,8 +444,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/28/面试-Java基础知识/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/07/28/面试-Java基础知识/" itemprop="commentCount"></span>
+                <a href="/2017/07/28/JAVA基础知识-面试/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/07/28/JAVA基础知识-面试/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -453,7 +453,7 @@
 
           
           
-             <span id="/2017/07/28/面试-Java基础知识/" class="leancloud_visitors" data-flag-title="面试-Java基础知识">
+             <span id="/2017/07/28/JAVA基础知识-面试/" class="leancloud_visitors" data-flag-title="面试-Java基础知识">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -484,7 +484,7 @@
       
 
       
-        <p>扎实基础！<br>18.3.5日更新：碰壁并吸取经验教训！</p>
+        <p>扎实基础！</p>
 <a id="more"></a>
 
 <p>笔试让我明白了自己的一些问题。</p>
@@ -534,7 +534,23 @@
 <li>对于被外键约束的表，不能使用TRUNCATE TABLE，而应该使用不带WHERE语句的DELETE语句。</li>
 <li>如果想保留标识计数值，要用DELETE，因为TRUNCATE TABLE会对新行标志符列搜用的计数值重置为该列的种子。</li>
 </ol>
-<p>###序列化的作用：<br>为了保存在内存中的各种对象的状态（序列化），并且可以把保存的对象状态再读出来（反序列化）。</p>
+<h3 id="序列化的作用："><a href="#序列化的作用：" class="headerlink" title="序列化的作用："></a>序列化的作用：</h3><p>为了保存在内存中的各种对象的状态（序列化），并且可以把保存的对象状态再读出来（反序列化）。</p>
+<h3 id="JAVA-中的-super和this"><a href="#JAVA-中的-super和this" class="headerlink" title="JAVA 中的 super和this"></a>JAVA 中的 super和this</h3><blockquote>
+<p>this的用法</p>
+</blockquote>
+<ol>
+<li>指向当前对象本身。</li>
+<li>形参与成员名字重名，用this来区分<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 形参与成员名字重名，用this来区分</span></span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>super用法</p>
+</blockquote>
+<ol>
+<li>指向当前对象的父类</li>
+<li>子类中的成员变量或方法与父类同名<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestTest</span> <span class="keyword">extends</span> <span class="title">Country</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">value</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        name = <span class="string">"Shanghai"</span>;</span><br><span class="line">        <span class="keyword">super</span>.value();</span><br><span class="line">        System.out.println(<span class="keyword">super</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TestTest tt = <span class="keyword">new</span> TestTest();</span><br><span class="line">        tt.value();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Country</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">value</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        name = <span class="string">"China"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
@@ -763,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识点"><span class="nav-number">1.</span> <span class="nav-text">基础知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一：-与-equal的区别："><span class="nav-number">1.1.</span> <span class="nav-text">一：== 与 equal的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二：public、protected、private、default（friendly）的区别"><span class="nav-number">1.2.</span> <span class="nav-text">二：public、protected、private、default（friendly）的区别:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final关键字："><span class="nav-number">1.3.</span> <span class="nav-text">final关键字：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java线程安全与非线程安全："><span class="nav-number">1.4.</span> <span class="nav-text">Java线程安全与非线程安全：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String、StringBuffer、StringBuilder的区别："><span class="nav-number">1.5.</span> <span class="nav-text">String、StringBuffer、StringBuilder的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array、ArrayList、Vectory、LinkedList的区别：-推荐看源码"><span class="nav-number">1.6.</span> <span class="nav-text">Array、ArrayList、Vectory、LinkedList的区别：(推荐看源码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map、List、Set、Array的区别："><span class="nav-number">1.7.</span> <span class="nav-text">Map、List、Set、Array的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator-的hasNext方法和next方法"><span class="nav-number">1.8.</span> <span class="nav-text">Iterator 的hasNext方法和next方法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA多线程和并发基础面试问答"><span class="nav-number">1.9.</span> <span class="nav-text">JAVA多线程和并发基础面试问答:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Oracle数据库中TRUNCATE-与-DELETE-的区别："><span class="nav-number">1.10.</span> <span class="nav-text">Oracle数据库中TRUNCATE 与 DELETE 的区别：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识点"><span class="nav-number">1.</span> <span class="nav-text">基础知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一：-与-equal的区别："><span class="nav-number">1.1.</span> <span class="nav-text">一：== 与 equal的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二：public、protected、private、default（friendly）的区别"><span class="nav-number">1.2.</span> <span class="nav-text">二：public、protected、private、default（friendly）的区别:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final关键字："><span class="nav-number">1.3.</span> <span class="nav-text">final关键字：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java线程安全与非线程安全："><span class="nav-number">1.4.</span> <span class="nav-text">Java线程安全与非线程安全：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String、StringBuffer、StringBuilder的区别："><span class="nav-number">1.5.</span> <span class="nav-text">String、StringBuffer、StringBuilder的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array、ArrayList、Vectory、LinkedList的区别：-推荐看源码"><span class="nav-number">1.6.</span> <span class="nav-text">Array、ArrayList、Vectory、LinkedList的区别：(推荐看源码)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map、List、Set、Array的区别："><span class="nav-number">1.7.</span> <span class="nav-text">Map、List、Set、Array的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator-的hasNext方法和next方法"><span class="nav-number">1.8.</span> <span class="nav-text">Iterator 的hasNext方法和next方法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA多线程和并发基础面试问答"><span class="nav-number">1.9.</span> <span class="nav-text">JAVA多线程和并发基础面试问答:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Oracle数据库中TRUNCATE-与-DELETE-的区别："><span class="nav-number">1.10.</span> <span class="nav-text">Oracle数据库中TRUNCATE 与 DELETE 的区别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化的作用："><span class="nav-number">1.11.</span> <span class="nav-text">序列化的作用：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA-中的-super和this"><span class="nav-number">1.12.</span> <span class="nav-text">JAVA 中的 super和this</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -783,7 +799,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -814,7 +830,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共32.5k字</span>
+  <span class="post-count">博客全站共33.1k字</span>
 </div></div>
         
 
