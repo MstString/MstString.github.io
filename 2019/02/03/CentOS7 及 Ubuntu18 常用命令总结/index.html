@@ -111,20 +111,20 @@
 
 
 
-  <meta name="description" content="常用的CentOS命令总结，方便查看与记忆。">
+  <meta name="description" content="常用的CentOS及Ubuntu命令总结，方便查看与记忆。">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7 及 Ubuntu18 常用命令总结">
 <meta property="og:url" content="https://www.leezy.top/2019/02/03/CentOS7 及 Ubuntu18 常用命令总结/index.html">
 <meta property="og:site_name" content="SAKURA">
-<meta property="og:description" content="常用的CentOS命令总结，方便查看与记忆。">
+<meta property="og:description" content="常用的CentOS及Ubuntu命令总结，方便查看与记忆。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/VirtualBox_NetWork.png">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/VirtualBox_Host_Only.png">
-<meta property="og:updated_time" content="2020-01-11T09:19:42.315Z">
+<meta property="og:updated_time" content="2020-02-16T13:52:34.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7 及 Ubuntu18 常用命令总结">
-<meta name="twitter:description" content="常用的CentOS命令总结，方便查看与记忆。">
+<meta name="twitter:description" content="常用的CentOS及Ubuntu命令总结，方便查看与记忆。">
 <meta name="twitter:image" content="https://www.leezy.top/assets/blogImg/VirtualBox_NetWork.png">
 
 
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-01-11 17:19:42" itemprop="dateModified" datetime="2020-01-11T17:19:42+08:00">2020-01-11</time>
+                <time title="修改时间：2020-02-16 21:52:34" itemprop="dateModified" datetime="2020-02-16T21:52:34+08:00">2020-02-16</time>
               
             
           </span>
@@ -485,7 +485,7 @@
       
 
       
-        <p>常用的CentOS命令总结，方便查看与记忆。</p>
+        <p>常用的CentOS及Ubuntu命令总结，方便查看与记忆。</p>
 <a id="more"></a>
 <h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><p>(1)查看DNS记录的命令（A记录、MX记录）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install bind-utils</span><br><span class="line"></span><br><span class="line">dig +noall +answer www.leezy.top</span><br></pre></td></tr></table></figure>
@@ -531,7 +531,7 @@
 <p>这样就可以快速的使用Docker pull 等命令了。<br>清理Dcoker 容器：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker system prune</span><br></pre></td></tr></table></figure>
 
-<h3 id="开放防火墙端口"><a href="#开放防火墙端口" class="headerlink" title="开放防火墙端口"></a>开放防火墙端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> --permanent 永久生效</span><br><span class="line">firewall-cmd --zone=public --add-port=9092/tcp --permanent</span><br><span class="line"><span class="meta">#</span> 重新载入</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"><span class="meta">#</span> 查看</span><br><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br><span class="line"><span class="meta">#</span> 删除</span><br><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+<h3 id="开放防火墙端口"><a href="#开放防火墙端口" class="headerlink" title="开放防火墙端口"></a>开放防火墙端口</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看所有开放的端口</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line"><span class="meta">#</span> --permanent 永久生效</span><br><span class="line">firewall-cmd --zone=public --add-port=9092/tcp --permanent</span><br><span class="line"><span class="meta">#</span> 重新载入</span><br><span class="line">firewall-cmd --reload</span><br><span class="line"><span class="meta">#</span> 查看</span><br><span class="line">firewall-cmd --zone=public --query-port=80/tcp</span><br><span class="line"><span class="meta">#</span> 删除</span><br><span class="line">firewall-cmd --zone=public --remove-port=80/tcp --permanent</span><br></pre></td></tr></table></figure>
 
 <h3 id="Putty连接Ubuntu虚拟机"><a href="#Putty连接Ubuntu虚拟机" class="headerlink" title="Putty连接Ubuntu虚拟机"></a>Putty连接Ubuntu虚拟机</h3><blockquote>
 <p>首先确保自己有root权限</p>
@@ -539,10 +539,14 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 设置root密码</span><br><span class="line">sudo passwd</span><br></pre></td></tr></table></figure>
 
 <ol>
-<li>首先配置Host-Only网卡，然后点击 <img src="/assets/blogImg/VirtualBox_NetWork.png" alt="VirtualBox 配置">  <img src="/assets/blogImg/VirtualBox_Host_Only.png" alt="VirtualBox Host Only 配置">  </li>
-<li>登入虚拟机使用<code>ifconfig -a</code>命令, 发现会有三个网卡(lo-本地、enp0s3-NET、enp0s8-Host-Only), 但是Host-Only没有IP地址</li>
-<li>输入<code>sudo dhclient enp0s8</code>, 即可获取IP地址</li>
-<li>Ubuntu 18.0新版后, <code>/etc/network/interfaces</code>的文件配置已经被弃用, <code>vim /etc/netplan/50-cloud-init.yaml</code></li>
+<li><p>首先配置Host-Only网卡，然后点击<br><img src="/assets/blogImg/VirtualBox_NetWork.png" alt="VirtualBox 配置"><br><img src="/assets/blogImg/VirtualBox_Host_Only.png" alt="VirtualBox Host Only 配置">  </p>
+</li>
+<li><p>登入虚拟机使用<code>ifconfig -a</code>命令, 发现会有三个网卡(lo-本地、enp0s3-NET、enp0s8-Host-Only), 但是Host-Only没有IP地址</p>
+</li>
+<li><p>输入<code>sudo dhclient enp0s8</code>, 即可获取IP地址</p>
+</li>
+<li><p>Ubuntu 18.0新版后, <code>/etc/network/interfaces</code>的文件配置已经被弃用, <code>vim /etc/netplan/50-cloud-init.yaml</code></p>
+</li>
 </ol>
 <p>配置如下：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file is generated from information provided by</span></span><br><span class="line"><span class="comment"># the datasource.  Changes to it will not persist across an instance.</span></span><br><span class="line"><span class="comment"># To disable cloud-init's network configuration capabilities, write a file</span></span><br><span class="line"><span class="comment"># /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:</span></span><br><span class="line"><span class="comment"># network: &#123;config: disabled&#125;</span></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line"><span class="attr">    ethernets:</span></span><br><span class="line"><span class="attr">        enp0s3:</span></span><br><span class="line"><span class="attr">            dhcp4:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">        enp0s8:</span></span><br><span class="line"><span class="attr">            dhcp4:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">            addresses:</span> <span class="string">[192.168.56.101/24]</span></span><br><span class="line"><span class="attr">            nameservers:</span> <span class="string">&#123;&#125;</span></span><br><span class="line"><span class="attr">            optional:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    version:</span> <span class="number">2</span></span><br><span class="line"><span class="string">~</span></span><br></pre></td></tr></table></figure>
@@ -673,7 +677,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -724,7 +728,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -832,7 +838,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共33.4k字</span>
+  <span class="post-count">博客全站共42.1k字</span>
 </div></div>
         
 
