@@ -111,18 +111,15 @@
 
 
 
-  <meta name="description" content="MySQL的优化方法。">
-<meta name="keywords" content="MySQL">
+  <meta name="keywords" content="Netty">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL优化">
-<meta property="og:url" content="https://www.leezy.top/2019/10/08/MySQL优化/index.html">
+<meta property="og:title" content="Netty框架学习">
+<meta property="og:url" content="https://www.leezy.top/2020/04/18/Netty框架学习/index.html">
 <meta property="og:site_name" content="SAKURA">
-<meta property="og:description" content="MySQL的优化方法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-16T07:59:22.802Z">
+<meta property="og:updated_time" content="2020-04-21T14:56:11.005Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL优化">
-<meta name="twitter:description" content="MySQL的优化方法。">
+<meta name="twitter:title" content="Netty框架学习">
 
 
 
@@ -131,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="https://www.leezy.top/2019/10/08/MySQL优化/">
+  <link rel="canonical" href="https://www.leezy.top/2020/04/18/Netty框架学习/">
 
 
 
@@ -141,7 +138,7 @@
   };
 </script>
 
-  <title>MySQL优化 | SAKURA</title>
+  <title>Netty框架学习 | SAKURA</title>
   
 
 
@@ -368,7 +365,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.leezy.top/2019/10/08/MySQL优化/">
+    <link itemprop="mainEntityOfPage" href="https://www.leezy.top/2020/04/18/Netty框架学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LEEZY">
@@ -385,7 +382,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL优化
+          <h1 class="post-title" itemprop="name headline">Netty框架学习
 
               
             
@@ -411,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2019-10-08 16:40:55" itemprop="dateCreated datePublished" datetime="2019-10-08T16:40:55+08:00">2019-10-08</time>
+              <time title="创建时间：2020-04-18 18:30:00" itemprop="dateCreated datePublished" datetime="2020-04-18T18:30:00+08:00">2020-04-18</time>
             
 
             
@@ -428,7 +425,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-12-16 15:59:22" itemprop="dateModified" datetime="2019-12-16T15:59:22+08:00">2019-12-16</time>
+                <time title="修改时间：2020-04-21 22:56:11" itemprop="dateModified" datetime="2020-04-21T22:56:11+08:00">2020-04-21</time>
               
             
           </span>
@@ -442,8 +439,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/10/08/MySQL优化/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/10/08/MySQL优化/" itemprop="commentCount"></span>
+                <a href="/2020/04/18/Netty框架学习/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2020/04/18/Netty框架学习/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -451,7 +448,7 @@
 
           
           
-             <span id="/2019/10/08/MySQL优化/" class="leancloud_visitors" data-flag-title="MySQL优化">
+             <span id="/2020/04/18/Netty框架学习/" class="leancloud_visitors" data-flag-title="Netty框架学习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -482,45 +479,7 @@
       
 
       
-        <p>MySQL的优化方法。</p>
-<a id="more"></a>
-
-<h3 id="MySQL的标准执行顺序"><a href="#MySQL的标准执行顺序" class="headerlink" title="MySQL的标准执行顺序"></a>MySQL的标准执行顺序</h3><p>从上到下：</p>
-<blockquote>
-<p><code>FROM</code></p>
-</blockquote>
-<blockquote>
-<p><code>ON</code><join_condition></join_condition></p>
-</blockquote>
-<blockquote>
-<p><join_type><code>JOIN</code><right_table></right_table></join_type></p>
-</blockquote>
-<blockquote>
-<p><code>WHERE</code><where_condition></where_condition></p>
-</blockquote>
-<blockquote>
-<p><code>GROUP BY</code><group_by_list></group_by_list></p>
-</blockquote>
-<blockquote>
-<p><code>WITH</code> {CUBE|ROLLUP}</p>
-</blockquote>
-<blockquote>
-<p><code>HAVING</code><having_condition></having_condition></p>
-</blockquote>
-<blockquote>
-<p><code>SELECT</code></p>
-</blockquote>
-<blockquote>
-<p><code>DISTINCT</code><select_list></select_list></p>
-</blockquote>
-<blockquote>
-<p><code>ORDER BY</code><order_by_list></order_by_list></p>
-</blockquote>
-<blockquote>
-<p><code>LIMIT</code><limit_number></limit_number></p>
-</blockquote>
-<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p>场景：含有GroupBy的语句里如何显示查询Count()为0的字段。</p>
-
+        
       
     </div>
 
@@ -543,7 +502,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
+            <a href="/tags/Netty/" rel="tag"><i class="fa fa-tag"></i> Netty</a>
           
         </div>
       
@@ -556,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/29/Git-从入门到精通/" rel="next" title="Git-从入门到精通">
-                <i class="fa fa-chevron-left"></i> Git-从入门到精通
+              <a href="/2020/04/13/Maven基础知识/" rel="next" title="Maven学习记录">
+                <i class="fa fa-chevron-left"></i> Maven学习记录
               </a>
             
           </div>
@@ -565,10 +524,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/07/JAVA8常用的日期时间方法/" rel="prev" title="JAVA8 常用的日期时间方法">
-                JAVA8 常用的日期时间方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -617,17 +572,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -642,7 +588,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">32</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -695,7 +641,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -743,22 +691,6 @@
       </div>
 
       
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL的标准执行顺序"><span class="nav-number">1.</span> <span class="nav-text">MySQL的标准执行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见问题"><span class="nav-number">2.</span> <span class="nav-text">常见问题</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
       
 
@@ -803,7 +735,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共51.5k字</span>
+  <span class="post-count">博客全站共53.1k字</span>
 </div></div>
         
 
