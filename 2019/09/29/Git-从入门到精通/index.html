@@ -121,7 +121,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/Git_git_log.png">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/Git_git_rebase_i.png">
-<meta property="og:updated_time" content="2020-05-05T10:16:25.850Z">
+<meta property="og:updated_time" content="2020-09-05T03:47:18.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git-从入门到精通">
 <meta name="twitter:description" content="Git Bash的简单使用方法。">
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-05 18:16:25" itemprop="dateModified" datetime="2020-05-05T18:16:25+08:00">2020-05-05</time>
+                <time title="修改时间：2020-09-05 11:47:18" itemprop="dateModified" datetime="2020-09-05T11:47:18+08:00">2020-09-05</time>
               
             
           </span>
@@ -625,7 +625,7 @@
 
 <p>上述命令可以加上<code>--pretty=oneline</code>让结果输出更简洁。</p>
 <p>场景：处理完冲突后将文件查看分支的更改情况</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --pretty=oneline --abbrev-commit</span><br><span class="line"><span class="meta">#</span> 起别名</span><br><span class="line">git config --global alias.lg “log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit”</span><br><span class="line"><span class="meta">#</span> 直接使用</span><br><span class="line">git lg</span><br></pre></td></tr></table></figure>
 
 <p>场景：新建分支并上传，并给分支添加tag</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line">echo "请输入项目名称"</span><br><span class="line">read project_dir</span><br><span class="line">if [ ! -n "$project_dir" ]</span><br><span class="line">then</span><br><span class="line">project_dir="/"</span><br><span class="line">fi</span><br><span class="line">echo "cd ./$project_dir"</span><br><span class="line">cd ./$project_dir</span><br><span class="line">git init</span><br><span class="line">echo "git init"</span><br><span class="line">git add .</span><br><span class="line">echo "git add ."</span><br><span class="line">git commit -m "R16.40"</span><br><span class="line">echo "git commit -m "R16.40""</span><br><span class="line">echo "请输入仓库地址"</span><br><span class="line">read repository_url</span><br><span class="line">if [ ! -n "$repository_url" ]</span><br><span class="line">then</span><br><span class="line">echo "仓库地址不正确"</span><br><span class="line">fi</span><br><span class="line">git remote add origin $repository_url</span><br><span class="line">echo "git remote add origin $repository_url"</span><br><span class="line">git checkout -b R16.40</span><br><span class="line">echo "git checkout -b R16.40"</span><br><span class="line">git push -u origin R16.40:R16.40</span><br><span class="line">echo "git push -u origin R16.40:R16.40"</span><br><span class="line">echo "请输入tag"</span><br><span class="line">read project_tag</span><br><span class="line">if [ ! -n "$project_tag" ]</span><br><span class="line">then</span><br><span class="line">echo "项目标签不正确"</span><br><span class="line">fi</span><br><span class="line">git tag $project_tag</span><br><span class="line">echo "git tag $project_tag"</span><br><span class="line">git push origin $project_tag</span><br><span class="line">echo "git push origin $project_tag"</span><br><span class="line">echo "代码上传成功"</span><br><span class="line">sleep 5s</span><br></pre></td></tr></table></figure>
@@ -913,7 +913,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共53.1k字</span>
+  <span class="post-count">博客全站共53.5k字</span>
 </div></div>
         
 
