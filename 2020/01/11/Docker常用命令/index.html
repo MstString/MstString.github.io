@@ -112,14 +112,14 @@
 
 
   <meta name="description" content="Docker 常用命令总结，坚持就是胜利！">
-<meta name="keywords" content="Tomcat,MySQL,Docker">
+<meta name="keywords" content="Docker,MySQL,Tomcat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker常用命令">
 <meta property="og:url" content="https://www.leezy.top/2020/01/11/Docker常用命令/index.html">
 <meta property="og:site_name" content="SAKURA">
 <meta property="og:description" content="Docker 常用命令总结，坚持就是胜利！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-11-28T08:46:52.497Z">
+<meta property="og:updated_time" content="2021-01-11T16:10:59.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker常用命令">
 <meta name="twitter:description" content="Docker 常用命令总结，坚持就是胜利！">
@@ -428,7 +428,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-11-28 16:46:52" itemprop="dateModified" datetime="2020-11-28T16:46:52+08:00">2020-11-28</time>
+                <time title="修改时间：2021-01-12 00:10:59" itemprop="dateModified" datetime="2021-01-12T00:10:59+08:00">2021-01-12</time>
               
             
           </span>
@@ -486,7 +486,7 @@
 <a id="more"></a>
 <h3 id="docker-常见命令总结"><a href="#docker-常见命令总结" class="headerlink" title="docker 常见命令总结"></a>docker 常见命令总结</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看已经安装的镜像</span><br><span class="line">docker images</span><br><span class="line"><span class="meta">#</span> 查看正在运行的容器</span><br><span class="line">docker ps</span><br><span class="line"><span class="meta">#</span> 查看已经退出的容器</span><br><span class="line">docker ps -a</span><br><span class="line"><span class="meta">#</span> 启动容器</span><br><span class="line">docker start &lt;container ID&gt;</span><br><span class="line"><span class="meta">#</span> 停止容器</span><br><span class="line">docker stop &lt;container ID&gt;</span><br><span class="line"><span class="meta">#</span> 开启一个容器内部的交互式终端 /bin/bash</span><br><span class="line">docker exec -it &lt;container ID&gt; /bin/bash</span><br></pre></td></tr></table></figure>
 
-<h3 id="Docker安装MySQL"><a href="#Docker安装MySQL" class="headerlink" title="Docker安装MySQL"></a>Docker安装MySQL</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line"><span class="meta">#</span> 将容器的 3306 端口映射到主机的 3306 端口, 容器conf目录和logs目录、data目录都挂载在本地，并设置root密码 root</span><br><span class="line">docker run -p 3306:3306 --name mymysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql</span><br><span class="line"><span class="meta">#</span> 这里会输出容器ID</span><br><span class="line"><span class="meta">#</span> 进入容器</span><br><span class="line">docker exec -it &lt;container ID&gt; /bin/bash</span><br><span class="line"><span class="meta">#</span> 登录Mysql</span><br><span class="line">mysql -uroot -p</span><br><span class="line"><span class="meta">#</span> 授权远程登录</span><br><span class="line">GRANT ALL ON *.* TO 'root'@'%';</span><br><span class="line"><span class="meta">#</span> 刷新权限</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<h3 id="Docker安装MySQL"><a href="#Docker安装MySQL" class="headerlink" title="Docker安装MySQL"></a>Docker安装MySQL</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line"><span class="meta">#</span> 将容器的 3306 端口映射到主机的 3306 端口, 容器conf目录和logs目录、data目录都挂载在本地，并设置root密码 root</span><br><span class="line">docker run -p 3306:3306 --name mymysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql</span><br><span class="line"><span class="meta">#</span> 这里会输出容器ID</span><br><span class="line"><span class="meta">#</span> 进入容器</span><br><span class="line">docker exec -it &lt;container ID&gt; /bin/bash</span><br><span class="line"><span class="meta">#</span> 登录Mysql</span><br><span class="line">mysql -uroot -p</span><br><span class="line"><span class="meta">#</span> 授权所有权限给root用户，并允许远程连接</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';</span><br><span class="line"><span class="meta">#</span> 刷新权限</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Docker安装Tomcat"><a href="#Docker安装Tomcat" class="headerlink" title="Docker安装Tomcat"></a>Docker安装Tomcat</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装Tomcat</span><br><span class="line">docker pull tomcat</span><br><span class="line"><span class="meta">#</span> 运行容器</span><br><span class="line"><span class="meta">#</span> 命令说明</span><br><span class="line"><span class="meta">#</span> -p 8080:8080：将容器的 8080 端口映射到主机的 8080 端口。</span><br><span class="line"><span class="meta">#</span> -v $PWD/test:/usr/local/tomcat/webapps/test：将主机中当前目录下的 test 挂载到容器的 /test。</span><br><span class="line">docker run --name tomcat -p 8080:8080 -v $PWD/test:/usr/local/tomcat/webapps/test -d tomcat</span><br><span class="line"></span><br><span class="line">docker exec -it &lt;container ID&gt; /bin/bash</span><br><span class="line"></span><br><span class="line">ls -l</span><br><span class="line">mv webapps.dist webapps</span><br></pre></td></tr></table></figure>
 
@@ -520,11 +520,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Tomcat/" rel="tag"><i class="fa fa-tag"></i> Tomcat</a>
+            <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
           
             <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
           
-            <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+            <a href="/tags/Tomcat/" rel="tag"><i class="fa fa-tag"></i> Tomcat</a>
           
         </div>
       
@@ -623,7 +623,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -757,7 +757,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -788,7 +788,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共57.9k字</span>
+  <span class="post-count">博客全站共60.5k字</span>
 </div></div>
         
 
