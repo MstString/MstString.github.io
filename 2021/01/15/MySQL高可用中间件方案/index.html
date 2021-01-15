@@ -119,14 +119,15 @@
 <meta property="og:site_name" content="SAKURA">
 <meta property="og:description" content="MySQL高可用中间件方案选型，稍微总结一下。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.leezy.top/assets/blogImg/mha_solution.png">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/innodb_cluster_overview.png">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/mariadb_maxscale.png">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/arkproxy.png">
-<meta property="og:updated_time" content="2021-01-14T16:56:38.679Z">
+<meta property="og:updated_time" content="2021-01-15T01:41:10.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL高可用中间件方案选型">
 <meta name="twitter:description" content="MySQL高可用中间件方案选型，稍微总结一下。">
-<meta name="twitter:image" content="https://www.leezy.top/assets/blogImg/innodb_cluster_overview.png">
+<meta name="twitter:image" content="https://www.leezy.top/assets/blogImg/mha_solution.png">
 
 
 
@@ -415,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2021-01-15 00:22:21 / 修改时间：00:56:38" itemprop="dateCreated datePublished" datetime="2021-01-15T00:22:21+08:00">2021-01-15</time>
+              <time title="创建时间：2021-01-15 00:22:21 / 修改时间：09:41:10" itemprop="dateCreated datePublished" datetime="2021-01-15T00:22:21+08:00">2021-01-15</time>
             
 
             
@@ -478,12 +479,8 @@
 <a id="more"></a>
 
 <h3 id="常用MySQL高可用中间件方案"><a href="#常用MySQL高可用中间件方案" class="headerlink" title="常用MySQL高可用中间件方案"></a>常用MySQL高可用中间件方案</h3><hr>
-<p>产品级别：<br>|  公司   | 产品名  |<br>|  :—-:  | :—-:  |<br>| MySQL  | MySQL Router |<br>| MariaDB  | Maxscale |<br>| Percona | ProxySQL |<br>| 极数云舟 | Arkproxy |<br>| 阿里巴巴 | MyCat |</p>
-<p>代码级别：<br>|  公司   | 产品名  |<br>|  :—-:  | :—-:  |<br>| Apache | shardingsphere-JDBC |</p>
-<p>架构级别 - 保证高可用数据一致性，并不能做读写分离。<br>|  公司   | 产品名  |<br>|  :—-:  | :—-:  |<br>| Codership | Galera Cluster |<br>| MySQL | MGR-MySQL Group Replication |</p>
-<hr>
-<h4 id="MySQL-Router"><a href="#MySQL-Router" class="headerlink" title="MySQL Router"></a>MySQL Router</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MySQL Router is part of InnoDB Cluster and is lightweight middleware that provides transparent routing between your application and back-end MySQL Servers. It is used for a wide variety of use cases, such as providing high availability and scalability by routing database traffic to appropriate back-end MySQL servers. The pluggable architecture also enables developers to extend MySQL Router for custom use cases.</span><br></pre></td></tr></table></figure>
-
+<p><img src="/assets/blogImg/mha_solution.png" alt="MySQL High Available Cluster"></p>
+<h4 id="MySQL-Router"><a href="#MySQL-Router" class="headerlink" title="MySQL Router"></a>MySQL Router</h4><p>  MySQL Router is part of InnoDB Cluster and is lightweight middleware that provides transparent routing between your application and back-end MySQL Servers. It is used for a wide variety of use cases, such as providing high availability and scalability by routing database traffic to appropriate back-end MySQL servers. The pluggable architecture also enables developers to extend MySQL Router for custom use cases.</p>
 <p>Mysql InnoDB Cluster 主要由三个模块构成：</p>
 <p><img src="/assets/blogImg/innodb_cluster_overview.png" alt="MySQL InnoDB Cluster"></p>
 <ol>
@@ -856,7 +853,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共60.5k字</span>
+  <span class="post-count">博客全站共60.4k字</span>
 </div></div>
         
 
