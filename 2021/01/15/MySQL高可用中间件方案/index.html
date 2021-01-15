@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/innodb_cluster_overview.png">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/mariadb_maxscale.png">
 <meta property="og:image" content="https://www.leezy.top/assets/blogImg/arkproxy.png">
-<meta property="og:updated_time" content="2021-01-15T01:41:10.641Z">
+<meta property="og:updated_time" content="2021-01-15T01:49:51.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL高可用中间件方案选型">
 <meta name="twitter:description" content="MySQL高可用中间件方案选型，稍微总结一下。">
@@ -416,7 +416,7 @@
                 
               
 
-              <time title="创建时间：2021-01-15 00:22:21 / 修改时间：09:41:10" itemprop="dateCreated datePublished" datetime="2021-01-15T00:22:21+08:00">2021-01-15</time>
+              <time title="创建时间：2021-01-15 00:22:21 / 修改时间：09:49:51" itemprop="dateCreated datePublished" datetime="2021-01-15T00:22:21+08:00">2021-01-15</time>
             
 
             
@@ -478,8 +478,8 @@
         <p>MySQL高可用中间件方案选型，稍微总结一下。</p>
 <a id="more"></a>
 
-<h3 id="常用MySQL高可用中间件方案"><a href="#常用MySQL高可用中间件方案" class="headerlink" title="常用MySQL高可用中间件方案"></a>常用MySQL高可用中间件方案</h3><hr>
-<p><img src="/assets/blogImg/mha_solution.png" alt="MySQL High Available Cluster"></p>
+
+<h3 id="常用MySQL高可用中间件方案"><a href="#常用MySQL高可用中间件方案" class="headerlink" title="常用MySQL高可用中间件方案"></a>常用MySQL高可用中间件方案</h3><p><img src="/assets/blogImg/mha_solution.png" alt="MySQL High Available Cluster"></p>
 <h4 id="MySQL-Router"><a href="#MySQL-Router" class="headerlink" title="MySQL Router"></a>MySQL Router</h4><p>  MySQL Router is part of InnoDB Cluster and is lightweight middleware that provides transparent routing between your application and back-end MySQL Servers. It is used for a wide variety of use cases, such as providing high availability and scalability by routing database traffic to appropriate back-end MySQL servers. The pluggable architecture also enables developers to extend MySQL Router for custom use cases.</p>
 <p>Mysql InnoDB Cluster 主要由三个模块构成：</p>
 <p><img src="/assets/blogImg/innodb_cluster_overview.png" alt="MySQL InnoDB Cluster"></p>
@@ -489,7 +489,7 @@
 <li>Mysql-router：内置读写分离，负载均衡。自动根据Mysql InnoDB Cluster中的metadata自动调整。</li>
 </ol>
 <p>优点：<br>其实也就是InnoDB Cluster的优点<br>缺点：<br>Mysql-router没有<code>SQL审计</code>，<code>限流</code>，<code>分库分表</code>的功能，但是可以通过C来写插件进行扩展；<br>非<code>InnoDB Cluster</code>架构下，主库和从库的拓扑变更需要修改配置并重启。</p>
-<h3 id="Maxscale"><a href="#Maxscale" class="headerlink" title="Maxscale"></a>Maxscale</h3><p><img src="/assets/blogImg/mariadb_maxscale.png" alt="mariadb_maxscale"><br>优点：</p>
+<h4 id="Maxscale"><a href="#Maxscale" class="headerlink" title="Maxscale"></a>Maxscale</h4><p><img src="/assets/blogImg/mariadb_maxscale.png" alt="mariadb_maxscale"><br>优点：</p>
 <ul>
 <li><p>支持读写分离，高可用，故障转移</p>
 </li>
@@ -497,7 +497,7 @@
 </li>
 </ul>
 <p><a href="https://mariadb.com/wp-content/uploads/2019/03/mariadb-maxscale_datasheet_1014.pdf" target="_blank" rel="noopener">官网介绍</a><br>缺点：<br>BSL协议，在生产环境，如果后端超过3个MariaDB实例提供服务，就必须购买商业授权。<br>Failover以及Switchover和Rejoin仅支持基于GTID(全局事务ID)的复制一起使用，并且仅适用于简单的一主多从拓扑架构：即1个master后面跟着多个slave。需要把loss-less无损半同步复制(semi replication)开启，参数rpl_semi_sync_master_wait_point=AFTER_SYNC，确保slave已经接收到了master的binlog，因为master宕机，MaxScale无法远程拷贝scp那一缺失的binlog，那么数据就出现不一致了。</p>
-<h3 id="ProxySQL"><a href="#ProxySQL" class="headerlink" title="ProxySQL"></a>ProxySQL</h3><p>C++开发，轻量级的开源软件，配置数据基于SQLite存储，Proxysql读写分离的中间件，支持高可用 主从\ MGR \ PXC等环境，并提供连接池、缓存、日志记录等功能。<br>优点：</p>
+<h4 id="ProxySQL"><a href="#ProxySQL" class="headerlink" title="ProxySQL"></a>ProxySQL</h4><p>C++开发，轻量级的开源软件，配置数据基于SQLite存储，Proxysql读写分离的中间件，支持高可用 主从\ MGR \ PXC等环境，并提供连接池、缓存、日志记录等功能。<br>优点：</p>
 <ul>
 <li>支持多路复用连接池</li>
 <li>自动下线后端DB； 延迟超过阀值、 ping 延迟超过阀值、网络不通或宕机</li>
@@ -521,7 +521,7 @@
 <li>Percona 分支数据库支持无任何权限侵入直接上线的功能</li>
 </ul>
 <p>缺点：<br>貌似上述功能都要依赖他们的体系。</p>
-<h3 id="MyCat"><a href="#MyCat" class="headerlink" title="MyCat"></a>MyCat</h3><p>优点：</p>
+<h4 id="MyCat"><a href="#MyCat" class="headerlink" title="MyCat"></a>MyCat</h4><p>优点：</p>
 <ul>
 <li>支持 SQL 92标准</li>
 <li>支持Mysql集群，可以作为Proxy使用</li>
@@ -552,7 +552,7 @@
 <li>热插拔：在服务期间，如果数据库挂了，只要监控程序发现的够快，不可服务时间就会非常少。在节点故障期间，节点本身对集群的影响非常小。<br>个人感觉适合交易类的场景，是一个可以保证数据强一致性的架构。</li>
 </ul>
 <p>缺点：<br>比较新型的架构使用者较少，还在发展。</p>
-<h3 id="MySQL-Group-Replication架构"><a href="#MySQL-Group-Replication架构" class="headerlink" title="MySQL Group Replication架构"></a>MySQL Group Replication架构</h3><p>MGR是以Plugin的形式嵌入在MySQL实例中，插件内部实现了冲突检测、Paxos协议通信等。</p>
+<h4 id="MySQL-Group-Replication架构"><a href="#MySQL-Group-Replication架构" class="headerlink" title="MySQL Group Replication架构"></a>MySQL Group Replication架构</h4><p>MGR是以Plugin的形式嵌入在MySQL实例中，插件内部实现了冲突检测、Paxos协议通信等。</p>
 <p>MySQL异步复制：</p>
 <p>master事务的提交不需要经过slave的确认，slave是否接收到master的binlog，master并不care。slave接收到master binlog后先写relay log，最后异步地去执行relay log中的sql应用到自身。由于master的提交不需要确保slave relay log是否被正确接受，当slave接受master binlog失败或者relay log应用失败，master无法感知。假设master发生宕机并且binlog还没来得及被slave接收，而切换程序将slave提升为新的master，就会出现数据不一致的情况！另外，在高并发的情况下，传统的主从复制，从节点可能会与主产生较大的延迟。</p>
 <p>MySQL半同步复制：</p>
@@ -802,7 +802,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用MySQL高可用中间件方案"><span class="nav-number">1.</span> <span class="nav-text">常用MySQL高可用中间件方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-Router"><span class="nav-number">1.1.</span> <span class="nav-text">MySQL Router</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maxscale"><span class="nav-number">2.</span> <span class="nav-text">Maxscale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ProxySQL"><span class="nav-number">3.</span> <span class="nav-text">ProxySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ArkProxy"><span class="nav-number">3.1.</span> <span class="nav-text">ArkProxy</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyCat"><span class="nav-number">4.</span> <span class="nav-text">MyCat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Apache-shardingsphere-JDBC"><span class="nav-number">4.1.</span> <span class="nav-text">Apache shardingsphere-JDBC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Galera-Cluster架构"><span class="nav-number">4.2.</span> <span class="nav-text">Galera Cluster架构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-Group-Replication架构"><span class="nav-number">5.</span> <span class="nav-text">MySQL Group Replication架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-主从同步配置"><span class="nav-number">6.</span> <span class="nav-text">MySQL 主从同步配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用MySQL高可用中间件方案"><span class="nav-number">1.</span> <span class="nav-text">常用MySQL高可用中间件方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-Router"><span class="nav-number">1.1.</span> <span class="nav-text">MySQL Router</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maxscale"><span class="nav-number">1.2.</span> <span class="nav-text">Maxscale</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ProxySQL"><span class="nav-number">1.3.</span> <span class="nav-text">ProxySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ArkProxy"><span class="nav-number">1.4.</span> <span class="nav-text">ArkProxy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyCat"><span class="nav-number">1.5.</span> <span class="nav-text">MyCat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Apache-shardingsphere-JDBC"><span class="nav-number">1.6.</span> <span class="nav-text">Apache shardingsphere-JDBC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Galera-Cluster架构"><span class="nav-number">1.7.</span> <span class="nav-text">Galera Cluster架构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-Group-Replication架构"><span class="nav-number">1.8.</span> <span class="nav-text">MySQL Group Replication架构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-主从同步配置"><span class="nav-number">2.</span> <span class="nav-text">MySQL 主从同步配置</span></a></li></ol></div>
             
 
           </div>
