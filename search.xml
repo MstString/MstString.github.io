@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>%2F2021%2F02%2F14%2F%E8%A7%86%E9%A2%91%E6%B5%8B%E8%AF%95%2F</url>
-    <content type="text"><![CDATA[2021年春节VLOG]]></content>
+    <title><![CDATA[2021年春节VLOG]]></title>
+    <url>%2F2021%2F02%2F14%2FNew_Year_VLOG%2F</url>
+    <content type="text"><![CDATA[2021年春节VLOG祝大家事业有成，万事如意！]]></content>
+      <tags>
+        <tag>VLOG</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[MySQL高可用中间件方案选型]]></title>
