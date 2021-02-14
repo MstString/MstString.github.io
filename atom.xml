@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.leezy.top/"/>
-  <updated>2021-02-14T03:28:54.346Z</updated>
+  <updated>2021-02-14T03:34:12.799Z</updated>
   <id>https://www.leezy.top/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://www.leezy.top/2021/02/14/%E8%A7%86%E9%A2%91%E6%B5%8B%E8%AF%95/"/>
     <id>https://www.leezy.top/2021/02/14/视频测试/</id>
     <published>2021-02-14T03:26:14.174Z</published>
-    <updated>2021-02-14T03:28:54.346Z</updated>
+    <updated>2021-02-14T03:34:12.799Z</updated>
     
-    <content type="html"><![CDATA[<p><video id="video" controls preload="none" poster="http://img.blog.fandong.me/2017-08-26-Markdown-Advance-Video.jpg">       <source id="mp4" src="http://img.blog.fandong.me/2017-08-26-Markdown-Advance-Video.mp4" type="video/mp4">       </video></p><iframe src="//player.bilibili.com/player.html?aid=459225597&bvid=BV1x5411E745&cid=297445311&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
+    <content type="html"><![CDATA[<h3 id="2021年春节VLOG"><a href="#2021年春节VLOG" class="headerlink" title="2021年春节VLOG"></a>2021年春节VLOG</h3><p><video id="video" controls preload="none" poster="http://img.blog.fandong.me/2017-08-26-Markdown-Advance-Video.jpg">       <source id="mp4" src="//player.bilibili.com/player.html?aid=459225597&bvid=BV1x5411E745&cid=297445311&page=1" type="video/mp4">春节VLOG</video></p><iframe src="//player.bilibili.com/player.html?aid=459225597&bvid=BV1x5411E745&cid=297445311&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;video id=&quot;video&quot; controls preload=&quot;none&quot; poster=&quot;http://img.blog.fandong.me/2017-08-26-Markdown-Advance-Video.jpg&quot;&gt;       &lt;source id=&quot;mp
+        &lt;h3 id=&quot;2021年春节VLOG&quot;&gt;&lt;a href=&quot;#2021年春节VLOG&quot; class=&quot;headerlink&quot; title=&quot;2021年春节VLOG&quot;&gt;&lt;/a&gt;2021年春节VLOG&lt;/h3&gt;&lt;p&gt;&lt;video id=&quot;video&quot; controls preload
       
     
     </summary>
@@ -205,27 +205,6 @@
   </entry>
   
   <entry>
-    <title>Spring自定义标签的使用</title>
-    <link href="https://www.leezy.top/2020/02/05/Spring%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://www.leezy.top/2020/02/05/Spring自定义标签的使用/</id>
-    <published>2020-02-05T09:58:21.000Z</published>
-    <updated>2020-11-28T08:46:52.503Z</updated>
-    
-    <content type="html"><![CDATA[<p>在Spring中完成一个自定义标签所需要的步骤。</p><a id="more"></a><ul><li><p>设计配置属性和JavaBean</p></li><li><p>编写XSD文件</p></li><li><p>编写BeanDefinitionParser标签解析类</p></li><li><p>编写调用标签解析类的NamespaceHandler类</p></li><li><p>编写spring.handlers和spring.schemas以供Spring读取</p></li><li><p>在Spring中使用</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在Spring中完成一个自定义标签所需要的步骤。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="JavaWEB" scheme="https://www.leezy.top/tags/JavaWEB/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Spring循环依赖三级缓存解析</title>
     <link href="https://www.leezy.top/2020/02/05/Spring%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/"/>
     <id>https://www.leezy.top/2020/02/05/Spring的循环依赖/</id>
@@ -237,6 +216,27 @@
     <summary type="html">
     
       &lt;p&gt;Spring循环依赖三级缓存解析。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="JavaWEB" scheme="https://www.leezy.top/tags/JavaWEB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring自定义标签的使用</title>
+    <link href="https://www.leezy.top/2020/02/05/Spring%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://www.leezy.top/2020/02/05/Spring自定义标签的使用/</id>
+    <published>2020-02-05T09:58:21.000Z</published>
+    <updated>2020-11-28T08:46:52.503Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Spring中完成一个自定义标签所需要的步骤。</p><a id="more"></a><ul><li><p>设计配置属性和JavaBean</p></li><li><p>编写XSD文件</p></li><li><p>编写BeanDefinitionParser标签解析类</p></li><li><p>编写调用标签解析类的NamespaceHandler类</p></li><li><p>编写spring.handlers和spring.schemas以供Spring读取</p></li><li><p>在Spring中使用</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在Spring中完成一个自定义标签所需要的步骤。&lt;/p&gt;
     
     </summary>
     
